@@ -1,0 +1,71 @@
+actor CPistol : Weapon
+{
+	AttackSound "weapons/pistol"
+	Weapon.AmmoType1 "Clip"
+	Weapon.AmmoUse1 1
+	Weapon.SlotNumber 2
+	Weapon.KickBack 40
+	Tag "Pistol"
+	Obituary "%o was shot with %k's pistol."
+	+WEAPON.NOALERT
+	States
+	{
+	Ready:
+		TNT1 A 0 A_JumpIfInventory("Sil_Pistol",1,2)
+		PISG A 1 A_WeaponReady
+		Goto ReadyLoop
+		PISS A 1 A_WeaponReady
+	ReadyLoop:
+		"####" "#" 1 A_WeaponReady
+		Goto Ready
+	Deselect:
+		PISG A 1 A_Lower
+		PISG A 0 A_JumpIfInventory("Sil_Pistol",1,1)
+		goto DeselectLoop
+		PISS A 1 A_Lower
+		goto DeselectLoop
+	DeselectLoop:
+		"####" "#" 1 A_Lower
+		Loop
+	Select:
+		PISG A 1 A_Raise
+		PISG A 0 A_JumpIfInventory("Sil_Pistol",1,1)
+		goto SelectLoop
+		PISS A 1 A_Raise
+		goto SelectLoop
+	SelectLoop:
+		"####" "#" 1 A_Raise
+		Loop
+	Fire:
+		TNT1 A 0 A_JumpIfInventory("Sil_Pistol",1,2)
+		TNT1 A 0 A_JumpIfNoAmmo("Noammo")
+		Goto FireNosil
+		PISS A 0 A_JumpIfNoAmmo("NoammoSil")
+		PISS A 5 BRIGHT A_FireBullets (2, 2, 1, random(1,4)*5, "BulletPuff", FBF_NORANDOM|FBF_USEAMMO|FBF_NORANDOMPUFFZ)
+		PISS C 5
+		PISS D 5
+		PISS C 5
+		PISS A 1
+		Goto Ready
+	FireNosil:
+		TNT1 A 0 A_AlertMonsters
+		PISG A 5 BRIGHT A_FireBullets (2, 2, 1, random(1,4)*5, "BulletPuff", FBF_NORANDOM|FBF_USEAMMO|FBF_NORANDOMPUFFZ)
+		PISG C 5
+		PISG D 5
+		PISG C 5
+		PISG A 1
+		Goto Ready
+	Noammo:
+		PISG C 5
+		PISG D 5
+		PISG C 5
+		PISG A 5
+		Goto Ready
+	NoammoSil:
+		PISS C 5
+		PISS D 5
+		PISS C 5
+		PISS A 5
+		Goto Ready
+	}
+}
