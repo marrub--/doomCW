@@ -1,0 +1,5 @@
+#include "actors/CPlayer.dec"
+#include "actors/CPistol.dec"
+
+actor Sil_Pistol : Inventory {Inventory.MaxAmount 1}
+actor Sil_Chaingun : Sil_Pistol {}
