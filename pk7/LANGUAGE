@@ -1,2 +1,6 @@
 [enu default]
-// Base
+CW_PISTOL_TAG = "Beretta";
+CW_CHAING_TAG = "Chaingun";
+
+CW_PISTOL_OBT = "%o was shot with %k's beretta.";
+CW_CHAING_OBT = "%o was made into swiss cheese by %k's chaingun.";
