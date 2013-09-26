@@ -12,25 +12,25 @@ script "CW_KEYFIND" ENTER
 	switch(modifier) // I'm sure there's a better way to do this, right?
 	{
 	case BT_RELOAD+BT_SPEED:
-		if(CheckInventory("Sil_Pistol")||CheckInventory("Sil_Chaingun"))
+		if(WepSelected()==WEP_PISTOL)
 		{
-			if(WepSelected()==WEP_PISTOL)
+			if(CheckInventory("Sil_Pistol"))
 			{
 				ACS_NamedExecuteAlways("CW_DETATCH",0,SILENCER_PISTOL);
 			}
-			if(WepSelected()==WEP_CHAINGUN)
-			{
-				ACS_NamedExecuteAlways("CW_DETATCH",0,SILENCER_CHAINGUN);
-			}
-			delay(10);
-		}
-		else
-		{
-			if(WepSelected()==WEP_PISTOL)
+			else
 			{
 				ACS_NamedExecuteAlways("CW_ATTACH",0,SILENCER_PISTOL);
 			}
-			if(WepSelected()==WEP_CHAINGUN)
+			delay(10);
+		}
+		if(WepSelected()==WEP_CHAINGUN)
+		{
+			if(CheckInventory("Sil_Chaingun"))
+			{
+				ACS_NamedExecuteAlways("CW_DETATCH",0,SILENCER_CHAINGUN);
+			}
+			else
 			{
 				ACS_NamedExecuteAlways("CW_ATTACH",0,SILENCER_CHAINGUN);
 			}
