@@ -1,0 +1,67 @@
+actor CChaingun : Weapon replaces Chaingun
+{
+	AttackSound "weapons/pistol"
+	Weapon.AmmoType1 "Clip"
+	Weapon.AmmoUse1 1
+	Weapon.SlotNumber 4
+	Weapon.KickBack 60
+	Tag "$CW_CHAING_TAG"
+	Obituary "$CW_CHAING_OBT"
+	+WEAPON.NOALERT
+	States
+	{
+	Ready:
+		TNT1 A 0 A_JumpIfInventory("Sil_Chaingun",1,2)
+		CHGG A 1 A_WeaponReady
+		Goto ReadyLoop
+		CHGS A 1 A_WeaponReady
+	ReadyLoop:
+		"####" "#" 1 A_WeaponReady
+		Goto Ready
+	Deselect:
+		CHGG A 0 A_JumpIfInventory("Sil_Chaingun",1,2)
+		CHGG A 1 A_Lower
+		goto DeselectLoop
+		CHGS A 1 A_Lower
+		goto DeselectLoop
+	DeselectLoop:
+		"####" "#" 1 A_Lower
+		Loop
+	Select:
+		CHGG A 0 A_JumpIfInventory("Sil_Chaingun",1,2)
+		CHGG A 1 A_Raise
+		goto SelectLoop
+		CHGS A 1 A_Raise
+		goto SelectLoop
+	SelectLoop:
+		"####" "#" 1 A_Raise
+		Loop
+	Fire:
+		TNT1 A 0 A_JumpIfInventory("Sil_Chaingun",1,2)
+		TNT1 A 0 A_JumpIfNoAmmo("Noammo")
+		Goto FireNosil
+		CHGS A 0 A_JumpIfNoAmmo("NoammoSil")
+		CHGS A 2 A_FireBullets (2, 2, 1, random(1,4)*5, "BulletPuff", FBF_NORANDOM|FBF_USEAMMO|FBF_NORANDOMPUFFZ)
+		CHGS B 2
+		CHGS A 5 A_Refire
+		Goto Ready
+	FireNosil:
+		TNT1 A 0 A_AlertMonsters
+		CHGG A 2 BRIGHT A_FireBullets (2, 2, 1, random(1,4)*5, "BulletPuff", FBF_NORANDOM|FBF_USEAMMO|FBF_NORANDOMPUFFZ)
+		CHGG B 2 BRIGHT
+		CHGG A 5 A_Refire
+		Goto Ready
+	Noammo:
+		CHGG C 5
+		CHGG D 5
+		CHGG C 5
+		CHGG A 5
+		Goto Ready
+	NoammoSil:
+		CHGS C 5
+		CHGS D 5
+		CHGS C 5
+		CHGS A 5
+		Goto Ready
+	}
+}
