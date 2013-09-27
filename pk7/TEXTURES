@@ -32,3 +32,20 @@ Sprite PISSD0, 320, 200
 	Patch SILENCER, 149, 67
 	Patch PISGD0, 125, 87
 }
+
+Sprite PISSE0, 320, 200
+{
+	Patch SILENCER, 147, 46
+	Patch PISGE0, 106, 65
+}
+
+Sprite PISIA0, 320, 200
+{
+	Patch PISIA0, 68, 68
+}
+
+Sprite PISIB0, 320, 200
+{
+	Patch SILENCR2, 152, 63
+	Patch PISIA0, 0,0
+}
