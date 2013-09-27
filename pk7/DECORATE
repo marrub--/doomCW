@@ -5,3 +5,5 @@
 
 actor Sil_Pistol : Inventory {Inventory.MaxAmount 1}
 actor Sil_Chaingun : Sil_Pistol {}
+
+actor Ironsight : Inventory {Inventory.MaxAmount 1}
