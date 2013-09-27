@@ -10,6 +10,14 @@ actor CPistol : Weapon replaces Pistol
 	+WEAPON.NOALERT
 	States
 	{
+	AltReady:
+		TNT1 A 0 A_JumpIfInventory("Sil_Pistol",1,2)
+		PISI A 1 A_WeaponReady
+		Goto AltReadyLoop
+		PISI B 1 A_WeaponReady
+	AltReadyLoop:
+		"####" "#" 1 A_WeaponReady
+		Goto AltReady
 	Ready:
 		TNT1 A 0 A_JumpIfInventory("Sil_Pistol",1,2)
 		PISG A 1 A_WeaponReady
@@ -19,7 +27,7 @@ actor CPistol : Weapon replaces Pistol
 		"####" "#" 1 A_WeaponReady
 		Goto Ready
 	Deselect:
-		PISG A 0 A_JumpIfInventory("Sil_Pistol",1,2)
+		TNT1 A 0 A_JumpIfInventory("Sil_Pistol",1,2)
 		PISG A 1 A_Lower
 		goto DeselectLoop
 		PISS A 1 A_Lower
@@ -28,7 +36,7 @@ actor CPistol : Weapon replaces Pistol
 		"####" "#" 1 A_Lower
 		Loop
 	Select:
-		PISG A 0 A_JumpIfInventory("Sil_Pistol",1,2)
+		TNT1 A 0 A_JumpIfInventory("Sil_Pistol",1,2)
 		PISG A 1 A_Raise
 		goto SelectLoop
 		PISS A 1 A_Raise
@@ -37,10 +45,11 @@ actor CPistol : Weapon replaces Pistol
 		"####" "#" 1 A_Raise
 		Loop
 	Fire:
+		TNT1 A 0 A_JumpIfInventory("Ironsight",1,"FireSighted")
 		TNT1 A 0 A_JumpIfInventory("Sil_Pistol",1,2)
 		TNT1 A 0 A_JumpIfNoAmmo("Noammo")
 		Goto FireNosil
-		PISS A 0 A_JumpIfNoAmmo("NoammoSil")
+		TNT1 A 0 A_JumpIfNoAmmo("NoammoSil")
 		PISS A 5 A_FireBullets (2, 2, 1, random(1,4)*5, "BulletPuff", FBF_NORANDOM|FBF_USEAMMO|FBF_NORANDOMPUFFZ)
 		PISS C 5
 		PISS D 5
@@ -55,6 +64,43 @@ actor CPistol : Weapon replaces Pistol
 		PISG A 5
 		PISG A 1
 		Goto Ready
+	FireSighted:
+		TNT1 A 0 A_JumpIfInventory("Sil_Pistol",1,2)
+		TNT1 A 0 A_JumpIfNoAmmo("Noammo")
+		Goto FireSightedNosil
+		TNT1 A 0 A_JumpIfNoAmmo("NoammoSightedSil")
+		PISI B 5 BRIGHT A_FireBullets (2, 2, 1, random(1,4)*5, "BulletPuff", FBF_NORANDOM|FBF_USEAMMO|FBF_NORANDOMPUFFZ)
+		PISI B 5 Offset(0,34)
+		PISI B 5 Offset(0,35)
+		PISI B 5 Offset(0,36)
+		PISI B 1 Offset(0,34)
+		Goto AltReady
+	FireSightedNosil:
+		TNT1 A 0 A_AlertMonsters
+		TNT1 A 0 A_JumpIfNoAmmo("NoammoSighted")
+		PISI A 5 BRIGHT A_FireBullets (2, 2, 1, random(1,4)*5, "BulletPuff", FBF_NORANDOM|FBF_USEAMMO|FBF_NORANDOMPUFFZ)
+		PISI A 5 Offset(0,34)
+		PISI A 5 Offset(0,35)
+		PISI A 5 Offset(0,36)
+		PISI A 1 Offset(0,34)
+		Goto AltReady
+	Altfire:
+		"####" A 0 A_JumpIfInventory("Ironsight",1,"SightOut")
+		"####" A 0 A_GiveInventory("Ironsight",1)
+		"####" D 5
+		"####" E 5
+		Goto AltReady
+	SightOut:
+		PISG A 0 A_TakeInventory("Ironsight",1)
+		PISG A 0 A_JumpIfInventory("Sil_Pistol",1,1)
+		Goto SightOutNosil
+		PISS E 5
+		PISS D 5
+		Goto Ready
+	SightOutNosil:
+		PISG E 5
+		PISG D 5
+		Goto Ready
 	Noammo:
 		PISG C 5
 		PISG D 5
@@ -67,5 +113,11 @@ actor CPistol : Weapon replaces Pistol
 		PISS C 5
 		PISS A 5
 		Goto Ready
+	NoammoSighted:
+		PISI A 1
+		Goto AltReady
+	NoammoSightedSil:
+		PISI B 1
+		Goto AltReady
 	}
 }
