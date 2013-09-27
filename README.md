@@ -4,7 +4,7 @@ Customizable Weaponry
 A mod for ZDoom that allows you to pimp your guns.
 
 Current features
-=====
+===
 
 	Silencers:
 		Hold RUN and RELOAD to attach or detatch a silencer on
@@ -15,7 +15,7 @@ Current features
 		to switch between holding and toggling sights.
 
 How to play
-=====
+===
 
 	1	: Go to the master branch.
 
