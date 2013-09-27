@@ -1,6 +1,7 @@
 actor CPlayer : DoomPlayer
 {
 	Player.StartItem "CPistol"
-	Player.StartItem "Clip", 50
 	Player.StartItem "Fist"
+	
+	Player.StartItem "Clip", 50
 }
