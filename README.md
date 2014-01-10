@@ -1,44 +1,28 @@
-Customizable Weaponry
-======
+About
+===
+A mod I've been wanting to do for a long time. I've resurrected it with
+some new features and a whole code overhaul. I hope this works!
+	Current version: v1.3 r1
+	Code-name: "Library Book 22"
 
-A mod for (G)ZDoom that allows you to pimp your guns.
-
-Currently at version 1.2, revision 3.
-
-Current features
+How to Play
 ===
 
-	Silencers:
-		Hold RUN and RELOAD to attach or detatch a silencer on
-		your pistol or chaingun. Sounds in progress.
+	To attach Silencers
+		Hold RUN and RELOAD to attach or detatch a Silencer.
 	
-	Ironsights:
-		Press altfire to toggle sights on your pistol.
+	To use Ironsights
+		Hold altfire to Aim Down Sights.
+	
+	To use the Customization Menu
+		Press ZOOM to open the Customization Menu.
+		Press RELOAD to scroll in the Customization Menu.
+		Press FIRE to attach an Attachment.
 
-How to play
+How to Build
 ===
 
-	1	: Go to the master branch.
+	1	: Clone the git to your desired location.
+		  (If you don't have a git client, just click Download ZIP)
 
-	2	: Clone the branch to your desired location.
-	2.5	: If you don't have a git client, just click Download ZIP
-		  on the main github page (https://github.com/marrub--/doomCW)
-
-	3	: Package the contents of ./pk7/ into a 7z or zip file and
-		  rename the extension to .pk7 (if it was a 7z file) or to
-		  .pk3 (if it was a zip file) and run the game as normal.
-
-Changelog
-===
-
-	v1.0:
-		+Added player
-		+Added pistol
-		+Added attach code
-	
-	v1.1:
-		+Added silencers
-		+Optimized attach code
-	
-	v1.2:
-		+Added ironsights
+	2	: Edit the makepk7 batch file to point to 7zip and run it
