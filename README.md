@@ -2,8 +2,8 @@ About
 ===
 A mod I've been wanting to do for a long time. I've resurrected it with
 some new features and a whole code overhaul. I hope this works!
-	Current version: v1.3 r1
-	Code-name: "Library Book 22"
+	Current version: v1.3 r2
+	Code-name: "Late Grafiks"
 
 How to Play
 ===
