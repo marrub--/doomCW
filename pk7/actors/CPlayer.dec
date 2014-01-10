@@ -4,4 +4,6 @@ actor CPlayer : DoomPlayer
 	Player.StartItem "Fist"
 	
 	Player.StartItem "Clip", 50
+	
+	Player.StartItem "Laz", 1
 }
