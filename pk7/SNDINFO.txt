@@ -1,0 +1,9 @@
+weapons/silenced1	DSSIL1
+weapons/silenced2	DSSIL2
+weapons/silenced3	DSSIL3
+
+$random weapons/silenced {weapons/silenced1 weapons/silenced2 weapons/silenced3}
+
+weapons/attachsil	DSPISUP
+weapons/unattachsil	DSPISUP
+weapons/beretta		DSPISFIR

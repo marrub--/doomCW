@@ -1,20 +1,3 @@
-Sprite CHGSA0, 320, 200
-{
-	Patch SILENCER, 152, 100
-	Patch SILENCR2, 174, 119
-	Patch SILENCR2, 132, 118
-	Patch CHGGA0, 104, 119
-}
-
-Sprite CHGSB0, 320, 200
-{
-	Patch SILENCER, 141, 100
-	Patch SILENCER, 163, 100
-	Patch SILENCR2, 121, 130
-	Patch SILENCR2, 188, 130
-	Patch CHGGB0, 104, 119
-}
-
 Sprite PISSA0, 320, 200
 {
 	Patch SILENCR2, 151, 98
@@ -41,11 +24,30 @@ Sprite PISSE0, 320, 200
 
 Sprite PISIA0, 320, 200
 {
-	Patch PISIA0, 68, 68
+	Patch PISI, 68, 68
 }
 
 Sprite PISIB0, 320, 200
 {
 	Patch SILENCR2, 152, 63
 	Patch PISIA0, 0,0
+}
+
+Sprite PISCA0, 320, 200
+{
+	Patch PISC, 42, 83
+}
+
+Sprite PISCB0, 320, 200
+{
+	Patch SILENCR3, 155, 76
+	Patch PISC, 42, 83
+}
+
+Sprite LAZRA0, 40, 40
+{
+	Patch LAZLIGHT, 0, 0
+	Offset 20, 30
+	XScale 7
+	YScale 7
 }
