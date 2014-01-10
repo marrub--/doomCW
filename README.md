@@ -16,8 +16,7 @@ How to Play
 	
 	To use the Customization Menu
 		Press ZOOM to open the Customization Menu.
-		Press RELOAD to scroll in the Customization Menu.
-		Press FIRE to attach an Attachment.
+		Press RELOAD to attach an Attachment.
 
 How to Build
 ===
