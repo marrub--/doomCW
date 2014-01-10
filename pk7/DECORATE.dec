@@ -1,0 +1,38 @@
+actor CWeapon : Weapon
+{
+	+WEAPON.NOALERT
+	+WEAPON.NOAUTOFIRE
+	Weapon.KickBack 40
+	Weapon.AmmoUse1 1
+}
+
+#include "actors/CPlayer.dec"		// Player
+#include "actors/CPistol.dec"		// Beretta
+
+actor dummy : Inventory {Inventory.MaxAmount 1}
+
+// Attachments
+actor PistolLaz : dummy {}
+actor Laz : dummy {}
+
+// Action items
+actor Sight : dummy {}
+actor CMenu : dummy {}
+actor DNS : dummy {}
+
+actor LaserPointer : BulletPuff
+{
+	-ALLOWPARTICLES
+	+NOTIMEFREEZE
+	+PUFFONACTORS
+	+NOTRIGGER
+	+BLOODLESSIMPACT
+	VSpeed 0
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		LAZR A 1
+		Stop
+	}
+}

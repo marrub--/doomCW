@@ -1,9 +1,0 @@
-#include "actors/CPlayer.dec"          // Player
-
-#include "actors/CPistol.dec"          // Beretta
-#include "actors/CChaingun.dec"        // Chaingun
-
-actor Sil_Pistol : Inventory {Inventory.MaxAmount 1}
-actor Sil_Chaingun : Sil_Pistol {}
-
-actor Ironsight : Inventory {Inventory.MaxAmount 1}
