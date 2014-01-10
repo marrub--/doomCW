@@ -1,33 +1,41 @@
 #library "CWAttach"
 
-script "CW_ATTACH"(int arg1)
+script "CW_ATTACH" (int arg1)
 {
 	switch(arg1)
 	{
 	default:
 		print(s:"Warning: Default attachment was used.\nPlease report this.");
 	break;
-	case SILENCER_PISTOL:
-		GiveInventory("Sil_Pistol",1);
+	case PIST_SIL:
+		if(CheckInventory("CPistolSil"))
+		{
+			GiveInventory("CPistolToNorm",1);
+			SetWeapon("CPistolToNorm");
+		}
+		else
+		{
+			GiveInventory("CPistolToSil",1);
+			SetWeapon("CPistolToSil");
+		}
 	break;
-	case SILENCER_CHAINGUN:
-		GiveInventory("Sil_Chaingun",1);
+	case PIST_LAZ:
+		if(CheckInventory("PistolLaz"))
+			TakeInventory("PistolLaz",1);
+		else
+			GiveInventory("PistolLaz",1);
 	break;
-	}
-}
-
-script "CW_DETATCH"(int arg1)
-{
-	switch(arg1)
-	{
-	default:
-		print(s:"Warning: Default detatchment was used.\nPlease report this.");
-	break;
-	case SILENCER_PISTOL:
-		TakeInventory("Sil_Pistol",1);
-	break;
-	case SILENCER_CHAINGUN:
-		TakeInventory("Sil_Chaingun",1);
+	case CM_PISTL:
+		if(CheckWeapon("CPistolSil"))
+		{
+			GiveInventory("CPistolSilCMenu",1);
+			SetWeapon("CPistolSilCMenu");
+		}
+		if(CheckWeapon("CPistol"))
+		{
+			GiveInventory("CPistolCMenu",1);
+			SetWeapon("CPistolCMenu");
+		}
 	break;
 	}
 }

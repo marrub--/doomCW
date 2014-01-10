@@ -4,38 +4,34 @@ script "CW_KEYFIND" ENTER
 {
 	while(1)
 	{
-	int mod1 = GetPlayerInput(-1,MODINPUT_BUTTONS) & BT_RELOAD;
-	int mod2 = GetPlayerInput(-1,MODINPUT_BUTTONS) & BT_SPEED;
+	int rel = GetPlayerInput(-1,MODINPUT_BUTTONS) & BT_RELOAD;
+	int spd = GetPlayerInput(-1,MODINPUT_BUTTONS) & BT_SPEED;
+	int zum = GetPlayerInput(-1,MODINPUT_BUTTONS) & BT_ZOOM;
 
-	int modifier = mod1+mod2;
+	int mod = rel+spd+zum;
 
-	switch(modifier) // I'm sure there's a better way to do this, right?
+	switch(mod)
 	{
 	case BT_RELOAD+BT_SPEED:
-		if(WepSelected()==WEP_PISTOL)
+		if(!CheckInventory("DNS") && (CheckWeapon("CPistol")||CheckWeapon("CPistolSil")))
+			ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_SIL);
+		
+		delay(10);
+	break;
+	case BT_RELOAD:
+		if(CheckInventory("CMenu"))
 		{
-			if(CheckInventory("Sil_Pistol"))
-			{
-				ACS_NamedExecuteAlways("CW_DETATCH",0,SILENCER_PISTOL);
-			}
-			else
-			{
-				ACS_NamedExecuteAlways("CW_ATTACH",0,SILENCER_PISTOL);
-			}
+			if((CheckWeapon("CPistolCMenu")||CheckWeapon("CPistolSilCMenu")) && CheckInventory("Laz"))
+				ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_LAZ);
+			
 			delay(10);
 		}
-		if(WepSelected()==WEP_CHAINGUN)
-		{
-			if(CheckInventory("Sil_Chaingun"))
-			{
-				ACS_NamedExecuteAlways("CW_DETATCH",0,SILENCER_CHAINGUN);
-			}
-			else
-			{
-				ACS_NamedExecuteAlways("CW_ATTACH",0,SILENCER_CHAINGUN);
-			}
-			delay(10);
-		}
+	break;
+	case BT_ZOOM:
+		if(CheckWeapon("CPistol")||CheckWeapon("CPistolSil"))
+			ACS_NamedExecuteAlways("CW_ATTACH",0,CM_PISTL);
+		
+		delay(10);
 	break;
 	}
 	delay(2);

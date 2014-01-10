@@ -1,17 +1,21 @@
 #library "CWMain"
-
 #include "zcommon.acs"
 
-// Definitions
-#include "CWDefs.h"
+#define PIST_SIL		0x01
+#define PIST_LAZ		0x02
+#define CM_PISTL		0x04
 
-#include "CWKeyFinder.h" // Keypress finder
-#include "CWAttach.h"    // Attachment and detatchment
+#define INT_MAX			0x7FFFFFFF
 
-function int WepSelected(void)
+#include "CWKeyFinder.h"	// Keypress finder
+#include "CWAttach.h"		// Attachment and detatchment
+#include "CWAtchMenu.h"		// Customization menu
+#include "CWLaser.h"		// Laser sight
+
+script "CW_STOPDEATH" DEATH
 {
-	if (CheckWeapon("CPistol")) return WEP_PISTOL;
-	if (CheckWeapon("CChaingun")) return WEP_CHAINGUN;
-	if (CheckWeapon("Fist")) return WEP_FIST;
-	return WEP_NULL;
+	ACS_NamedTerminate("CW_LASER",0);
+	ACS_NamedTerminate("CW_MENUOPEN",0);
+	ACS_NamedTerminate("CW_ATTACH",0);
+	ACS_NamedTerminate("CW_KEYFIND",0);
 }
