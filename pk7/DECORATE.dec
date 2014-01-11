@@ -1,3 +1,11 @@
+const int GV_PSTF1 = 1;
+const int GV_PSTF2 = 2;
+
+DamageType NoDam
+{
+	Factor 0
+}
+
 actor CWeapon : Weapon
 {
 	+WEAPON.NOALERT
@@ -6,19 +14,26 @@ actor CWeapon : Weapon
 	Weapon.AmmoUse1 1
 }
 
-#include "actors/CPlayer.dec"		// Player
-#include "actors/CPistol.dec"		// Beretta
+#include "actors/CPlayer.dec"	// Player
+#include "actors/CPistol.dec"	// Beretta
 
 actor dummy : Inventory {Inventory.MaxAmount 1}
 
 // Attachments
 actor PistolLaz : dummy {}
+actor PistolLTrig : dummy {}
 actor Laz : dummy {}
+actor LTrig : dummy {}
+
+// Modifier items
+actor PistolFSpeedMod : dummy {Inventory.MaxAmount 2}
+actor PistolAccuracyMod : dummy {Inventory.MaxAmount 2}
 
 // Action items
 actor Sight : dummy {}
 actor CMenu : dummy {}
 actor DNS : dummy {}
+actor CMenuNext : dummy {}
 
 actor LaserPointer : BulletPuff
 {
