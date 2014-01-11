@@ -1,7 +1,9 @@
 About
 ===
-A mod I've been wanting to do for a long time. I've resurrected it with
-some new features and a whole code overhaul. I hope this works!
+A mod where you use inventory hacks to hack your inventory.
+
+..Wait, is that right? Yeah, I think it is.
+
 	Current version: v1.3.1 r1
 	Code-name: "I Hate Inventory Items"
 
