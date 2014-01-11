@@ -55,6 +55,18 @@ script "CW_ATTACH" (int arg1)
 			SetWeapon("CPistolCMenu");
 		}
 	break;
+	case SHOG_SIL:
+		if(CheckInventory("CShotgunSil"))
+		{
+			GiveInventory("CShotgunToNorm",1);
+			SetWeapon("CShotgunToNorm");
+		}
+		else
+		{
+			GiveInventory("CShotgunToSil",1);
+			SetWeapon("CShotgunToSil");
+		}
+	break;
 	}
 }
 

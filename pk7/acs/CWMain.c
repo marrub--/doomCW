@@ -5,6 +5,7 @@
 #define PIST_LAZ		2
 #define PIST_TRG		4
 #define CM_PISTL		8
+#define SHOG_SIL		16
 
 #define GV_PSTF1		1
 #define GV_PSTF2		2

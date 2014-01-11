@@ -69,6 +69,7 @@ actor CPistol : CWeapon
 
 actor CPistolSil : CWeapon
 {
+	+WEAPON.CHEATNOTWEAPON
 	Weapon.SlotNumber 2
 	Weapon.AmmoType1 "Clip"
 	AttackSound "weapons/silpistol"
@@ -132,6 +133,7 @@ actor CPistolSil : CWeapon
 
 actor CPistolToSil : Weapon
 {
+	+WEAPON.CHEATNOTWEAPON
 	Tag "$CW_PISTOL_WTAG"
 	States
 	{
@@ -175,6 +177,7 @@ actor CPistolToNorm : CPistolToSil
 
 actor CPistolCMenu : Weapon
 {
+	+WEAPON.CHEATNOTWEAPON
 	Tag "$CW_PISTOL_WTAG"
 	States
 	{
@@ -221,7 +224,8 @@ actor CPistolCMenu : Weapon
 
 actor CPistolSilCMenu : Weapon
 {
-	Tag "$CW_PISTOL_WTAG"
+	+WEAPON.CHEATNOTWEAPON
+	Tag "$CW_SPISTL_WTAG"
 	States
 	{
 	Select:

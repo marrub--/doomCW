@@ -16,6 +16,7 @@ actor CWeapon : Weapon
 
 #include "actors/CPlayer.dec"	// Player
 #include "actors/CPistol.dec"	// Beretta
+#include "actors/CShotgun.dec"	// Shotgun
 
 actor dummy : Inventory {Inventory.MaxAmount 1}
 

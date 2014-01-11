@@ -11,9 +11,13 @@ script "CW_KEYFIND" ENTER
 	switch(mod)
 	{
 	case BT_RELOAD+BT_SPEED:
-		if(!CheckInventory("DNS") && (CheckWeapon("CPistol")||CheckWeapon("CPistolSil")))
+		if(!CheckInventory("DNS"))
+		{
+		if(CheckWeapon("CPistol")||CheckWeapon("CPistolSil"))
 			ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_SIL);
-		
+		if(CheckWeapon("CShotgun")||CheckWeapon("CShotgunSil"))
+			ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_SIL);
+		}
 		delay(10);
 	break;
 	case BT_RELOAD:
