@@ -133,8 +133,6 @@ actor CPistolSil : CWeapon
 actor CPistolToSil : Weapon
 {
 	Tag "$CW_PISTOL_WTAG"
-	Weapon.AmmoType1 "Clip"
-	Weapon.AmmoUse1 0
 	States
 	{
 	Select:
@@ -162,8 +160,6 @@ actor CPistolToSil : Weapon
 actor CPistolToNorm : CPistolToSil
 {
 	Tag "$CW_SPISTL_WTAG"
-	Weapon.AmmoType1 "Clip"
-	Weapon.AmmoUse1 0
 	States
 	{
 	Ready:
@@ -180,8 +176,6 @@ actor CPistolToNorm : CPistolToSil
 actor CPistolCMenu : Weapon
 {
 	Tag "$CW_PISTOL_WTAG"
-	Weapon.AmmoType1 "Clip"
-	Weapon.AmmoUse1 0
 	States
 	{
 	Select:
@@ -228,8 +222,6 @@ actor CPistolCMenu : Weapon
 actor CPistolSilCMenu : Weapon
 {
 	Tag "$CW_PISTOL_WTAG"
-	Weapon.AmmoType1 "Clip"
-	Weapon.AmmoUse1 0
 	States
 	{
 	Select:
