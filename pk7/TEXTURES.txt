@@ -51,3 +51,9 @@ Sprite LAZRA0, 40, 40
 	XScale 7
 	YScale 7
 }
+
+Sprite SHTSA0, 320, 200
+{
+	Patch SILENCR2, 151, 98
+	Patch SHTGA0, 126, 106
+}
