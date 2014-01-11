@@ -2,8 +2,6 @@
 
 script "CW_KEYFIND" ENTER
 {
-	while(1)
-	{
 	int rel = GetPlayerInput(-1,MODINPUT_BUTTONS) & BT_RELOAD;
 	int spd = GetPlayerInput(-1,MODINPUT_BUTTONS) & BT_SPEED;
 	int zum = GetPlayerInput(-1,MODINPUT_BUTTONS) & BT_ZOOM;
@@ -21,9 +19,19 @@ script "CW_KEYFIND" ENTER
 	case BT_RELOAD:
 		if(CheckInventory("CMenu"))
 		{
-			if((CheckWeapon("CPistolCMenu")||CheckWeapon("CPistolSilCMenu")) && CheckInventory("Laz"))
-				ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_LAZ);
-			
+			if((CheckWeapon("CPistolCMenu")||CheckWeapon("CPistolSilCMenu")))
+			{
+				if(CheckInventory("CMenuNext"))
+				{
+					if(CheckInventory("LTrig"))
+						ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_TRG);
+				}
+				else
+				{
+					if(CheckInventory("Laz"))
+						ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_LAZ);
+				}
+			}
 			delay(10);
 		}
 	break;
@@ -35,5 +43,6 @@ script "CW_KEYFIND" ENTER
 	break;
 	}
 	delay(2);
-	}
+	restart;
 }
+

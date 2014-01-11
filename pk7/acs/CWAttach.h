@@ -21,9 +21,27 @@ script "CW_ATTACH" (int arg1)
 	break;
 	case PIST_LAZ:
 		if(CheckInventory("PistolLaz"))
+		{
+			TakeInventory("PistolAccuracyMod",1);
 			TakeInventory("PistolLaz",1);
+		}
 		else
+		{
+			GiveInventory("PistolAccuracyMod",1);
 			GiveInventory("PistolLaz",1);
+		}
+	break;
+	case PIST_TRG:
+		if(CheckInventory("PistolLTrig"))
+		{
+			TakeInventory("PistolFSPeedMod",1);
+			TakeInventory("PistolLTrig",1);
+		}
+		else
+		{
+			GiveInventory("PistolFSPeedMod",1);
+			GiveInventory("PistolLTrig",1);
+		}
 	break;
 	case CM_PISTL:
 		if(CheckWeapon("CPistolSil"))
@@ -39,3 +57,4 @@ script "CW_ATTACH" (int arg1)
 	break;
 	}
 }
+
