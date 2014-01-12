@@ -28,13 +28,13 @@ actor CPistol : CWeapon
 		PISG A 9 A_SetTics(CallACS("CW_GETVAL",GV_PSTF1))
 		TNT1 A 0 A_AlertMonsters
 		TNT1 A 0 A_GunFlash
-		PISG B 5 BRIGHT A_FireBullets(CallACS("CW_GETVAL",GV_PSTF2),0,1,5,"BulletPuff")
+		PISG A 5 BRIGHT A_FireBullets(CallACS("CW_GETVAL",GV_PSTF2),0,1,5,"BulletPuff")
 		PISG DC 4
-		PISG B 2 A_Refire
+		PISG A 2 A_Refire
 		goto Ready
 	
 	Flash:
-		PISF A 4 A_Light2
+		PISF Z 4 A_Light2
 		goto LightDone
 	}
 }
@@ -68,9 +68,8 @@ actor CPistolSil : CWeapon
 	// Fire //
 	Fire:
 		PISS A 9 A_SetTics(CallACS("CW_GETVAL",GV_PSTF1))
-		PISS A 5 BRIGHT A_FireBullets(CallACS("CW_GETVAL",GV_PSTF2),0,1,5,"BulletPuff")
-		PISS C 4
-		PISS D 4
+		PISS A 5 A_FireBullets(CallACS("CW_GETVAL",GV_PSTF2),0,1,5,"BulletPuff")
+		PISS DC 4
 		PISS A 2 A_Refire
 		goto Ready
 	}
@@ -78,6 +77,7 @@ actor CPistolSil : CWeapon
 
 actor CPistolToSil : Weapon
 {
+	+WEAPON.NOALERT
 	+WEAPON.CHEATNOTWEAPON
 	Tag "$CW_PISTOL_WTAG"
 	States
@@ -122,6 +122,7 @@ actor CPistolToNorm : CPistolToSil
 
 actor CPistolCMenu : Weapon
 {
+	+WEAPON.NOALERT
 	+WEAPON.CHEATNOTWEAPON
 	Tag "$CW_PISTOL_WTAG"
 	States
@@ -169,6 +170,7 @@ actor CPistolCMenu : Weapon
 
 actor CPistolSilCMenu : Weapon
 {
+	+WEAPON.NOALERT
 	+WEAPON.CHEATNOTWEAPON
 	Tag "$CW_SPISTL_WTAG"
 	States
