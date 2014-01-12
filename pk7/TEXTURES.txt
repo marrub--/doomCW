@@ -54,6 +54,9 @@ Sprite LAZRA0, 40, 40
 
 Sprite SHTSA0, 320, 200
 {
-	Patch SILENCR2, 151, 98
-	Patch SHTGA0, 126, 106
+	Patch SILENCR2, 154, 103
+	Patch SHTGA0, 0, 0
+	{
+		UseOffsets
+	}
 }

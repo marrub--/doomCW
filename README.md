@@ -4,8 +4,8 @@ A mod where you use inventory hacks to hack your inventory.
 
 ..Wait, is that right? Yeah, I think it is.
 
-	Current version: v1.3.2
-	Code-name: "I'm legitimately going insane because of this project I think"
+	Current version: v1.3.2 r1
+	Code-name: "Oh Hey"
 
 How to Play
 ===
@@ -28,3 +28,4 @@ How to Build
 		  (If you don't have a git client, just click Download ZIP)
 
 	2	: Edit the makepk7 batch file to point to 7zip and run it
+	3	: If you don't have 7zip, just drag the pk7 folder onto gzdoom/zdoom.exe
