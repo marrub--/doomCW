@@ -31,7 +31,6 @@ actor PistolFSpeedMod : dummy {Inventory.MaxAmount 2}
 actor PistolAccuracyMod : dummy {Inventory.MaxAmount 2}
 
 // Action items
-actor Sight : dummy {}
 actor CMenu : dummy {}
 actor DNS : dummy {}
 actor CMenuNext : dummy {}

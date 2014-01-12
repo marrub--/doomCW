@@ -13,9 +13,6 @@ How to Play
 	To attach Silencers
 		Hold RUN and RELOAD to attach or detatch a Silencer.
 	
-	To use Ironsights
-		Press ALTFIRE to Aim Down Sights.
-	
 	To use the Customization Menu
 		Press ZOOM to open the Customization Menu.
 		Press RELOAD to attach an Attachment.

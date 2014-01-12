@@ -37,33 +37,6 @@ actor CPistol : CWeapon
 	Flash:
 		PISF A 4 A_Light2
 		goto LightDone
-	
-	// Ironsight //
-	Altfire:
-		TNT1 A 0 A_GiveInventory("DNS")
-		TNT1 A 0 A_JumpIfInventory("Sight",1,2)
-		TNT1 A 0 A_GiveInventory("Sight",1)
-		goto SIn
-		TNT1 A 0 A_TakeInventory("Sight",1)
-		goto SOut
-	SIn:
-		PISG D 5
-		PISG E 5
-		goto SReady
-	SOut:
-		PISG E 5
-		PISG D 5
-		goto Ready
-	SReady:
-		PISI A 1 A_WeaponReady(WRF_NOSWITCH)
-		wait
-	SFire:
-		PISI A 9 A_SetTics(CallACS("CW_GETVAL",GV_PSTF1))
-		TNT1 A 0 A_AlertMonsters
-		PISI A 5 BRIGHT A_FireBullets(CallACS("CW_GETVAL",GV_PSTF2),0,1,5,"BulletPuff")
-		PISI A 5 Offset(0,36)
-		PISI A 1 Offset(0,34)
-		goto SReady
 	}
 }
 
@@ -102,32 +75,6 @@ actor CPistolSil : CWeapon
 		PISS D 4
 		PISS A 2 A_Refire
 		goto Ready
-	
-	// Ironsight //
-	Altfire:
-		TNT1 A 0 A_GiveInventory("DNS",1)
-		TNT1 A 0 A_JumpIfInventory("Sight",1,2)
-		TNT1 A 0 A_GiveInventory("Sight",1)
-		goto SIn
-		TNT1 A 0 A_TakeInventory("Sight",1)
-		goto SOut
-	SIn:
-		PISS D 5
-		PISS E 5
-		goto SReady
-	SOut:
-		PISS E 5
-		PISS D 5
-		goto Ready
-	SReady:
-		PISI B 1 A_WeaponReady(WRF_NOSWITCH)
-		wait
-	SFire:
-		PISI B 9 A_SetTics(CallACS("CW_GETVAL",GV_PSTF1))
-		PISI B 4 A_FireBullets(CallACS("CW_GETVAL",GV_PSTF2),0,1,5,"BulletPuff")
-		PISI B 4 Offset(0,36)
-		PISI B 1 Offset(0,34)
-		goto SReady
 	}
 }
 

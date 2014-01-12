@@ -72,16 +72,11 @@ actor CShotgunSil : CWeapon
 	Fire:
 		SHTS A 9 A_SetTics(CallACS("CW_GETVAL",GV_PSTF1))
 		SHTS A 5 BRIGHT A_FireBullets(7,0,12,2,"BulletPuff")
-		SHTG B 5
-		SHTG C 5 A_PlaySound("weapons/shogupg",5)
-		SHTG DCB 5
-		SHTG A 6 A_Refire
+		SHTS B 5
+		SHTS C 5 A_PlaySound("weapons/shogupg",5)
+		SHTS DCB 5
+		SHTS A 6 A_Refire
 		goto Ready
-	
-	Flash:
-		SHTF A 2 A_Light2
-		SHTF B 2 A_Light1
-		goto LightDone
 	}
 }
 

@@ -16,23 +16,6 @@ Sprite PISSD0, 320, 200
 	Patch PISGD0, 125, 87
 }
 
-Sprite PISSE0, 320, 200
-{
-	Patch SILENCER, 147, 46
-	Patch PISGE0, 106, 65
-}
-
-Sprite PISIA0, 320, 200
-{
-	Patch PISI, 68, 68
-}
-
-Sprite PISIB0, 320, 200
-{
-	Patch SILENCR2, 152, 63
-	Patch PISIA0, 0,0
-}
-
 Sprite PISCA0, 320, 200
 {
 	Patch PISC, 42, 83
@@ -56,7 +39,27 @@ Sprite SHTSA0, 320, 200
 {
 	Patch SILENCR2, 154, 103
 	Patch SHTGA0, 0, 0
-	{
-		UseOffsets
-	}
+	{UseOffsets}
+}
+
+Sprite SHTSB0, 320, 200
+{
+	Patch SILENCR4, 94, 9
+	Patch SHTGB0, 0, 0
+	{UseOffsets}
+}
+
+Sprite SHTSC0, 320, 240
+{
+	Offset 0, 39
+	Patch SILENCR5, 43, 13
+	Patch SHTGC0, 0, 39
+	{UseOffsets}
+}
+
+Sprite SHTSD0, 320, 200
+{
+	Patch SILENCR6, 29, 1
+	Patch SHTGD0, 0, 0
+	{UseOffsets}
 }
