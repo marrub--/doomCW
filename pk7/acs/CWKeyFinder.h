@@ -15,7 +15,7 @@ script "CW_KEYFIND" ENTER
 		{
 		if(CheckWeapon("CPistol"))
 			ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_SIL);
-		if(CheckWeapon("CShotgun")||CheckWeapon("CShotgunSil"))
+		if(CheckWeapon("CShotgun"))
 			ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_SIL);
 		}
 		delay(10);

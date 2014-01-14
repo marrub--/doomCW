@@ -24,7 +24,7 @@ script "CW_ATTACH" (int arg1)
 		}
 	break;
 	case SHOG_SIL:
-		SWepFunc("CShotgunSil", "CShotgunToNorm", "CShotgunToSil");
+		SWepFunc("ShotgunSil", "CShotgunToNorm", "CShotgunToSil");
 	break;
 	}
 }

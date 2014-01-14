@@ -4,7 +4,7 @@ script "CW_MENUOPEN" (int arg1)
 {
 	SetHudSize(320,200,0);
 	SetFont("DBIGFONT");
-	HudMessage(s:"Reload: Attach"; HUDMSG_PLAIN,60,0,160.0,15.0,1.0,1.0);
+	HudMessage(s:"Reload:Attach\nFire:Switch"; HUDMSG_PLAIN,60,0,160.0,15.0,1.0,1.0);
 	int CMenuX;
 	int CMenuY;
 	if(CheckWeapon("CPistolCMenu"))

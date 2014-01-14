@@ -27,6 +27,7 @@ actor PistolLTrig : dummy {}
 actor Laz : dummy {}
 actor LTrig : dummy {}
 
+actor ShotgunSil : dummy {}
 // Modifier items
 actor PistolFSpeedMod : dummy {Inventory.MaxAmount 2}
 actor PistolAccuracyMod : dummy {Inventory.MaxAmount 2}
