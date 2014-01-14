@@ -8,40 +8,13 @@ script "CW_ATTACH" (int arg1)
 		print(s:"Warning: Default attachment was used.\nPlease report this.");
 	break;
 	case PIST_SIL:
-		if(CheckInventory("CPistolSil"))
-		{
-			GiveInventory("CPistolToNorm",1);
-			SetWeapon("CPistolToNorm");
-		}
-		else
-		{
-			GiveInventory("CPistolToSil",1);
-			SetWeapon("CPistolToSil");
-		}
+		SWepFunc("CPistolSil", "CPistolToNorm", "CPistolToSil");
 	break;
 	case PIST_LAZ:
-		if(CheckInventory("PistolLaz"))
-		{
-			TakeInventory("PistolAccuracyMod",1);
-			TakeInventory("PistolLaz",1);
-		}
-		else
-		{
-			GiveInventory("PistolAccuracyMod",1);
-			GiveInventory("PistolLaz",1);
-		}
+		SItmFunc("PistolLaz", "PistolAccuracyMod");
 	break;
 	case PIST_TRG:
-		if(CheckInventory("PistolLTrig"))
-		{
-			TakeInventory("PistolFSPeedMod",1);
-			TakeInventory("PistolLTrig",1);
-		}
-		else
-		{
-			GiveInventory("PistolFSPeedMod",1);
-			GiveInventory("PistolLTrig",1);
-		}
+		SItmFunc("PistolLTrig", "PistolFSpeedMod");
 	break;
 	case CM_PISTL:
 		if(CheckWeapon("CPistolSil"))
@@ -56,16 +29,7 @@ script "CW_ATTACH" (int arg1)
 		}
 	break;
 	case SHOG_SIL:
-		if(CheckInventory("CShotgunSil"))
-		{
-			GiveInventory("CShotgunToNorm",1);
-			SetWeapon("CShotgunToNorm");
-		}
-		else
-		{
-			GiveInventory("CShotgunToSil",1);
-			SetWeapon("CShotgunToSil");
-		}
+		SWepFunc("CShotgunSil", "CShotgunToNorm", "CShotgunToSil");
 	break;
 	}
 }

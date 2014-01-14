@@ -12,6 +12,34 @@
 
 #define INT_MAX			0x7FFFFFFF
 
+function SWepFunc (str arg1, str arg2, str arg3)
+{
+	if(CheckInventory(arg1))
+	{
+		GiveInventory(arg2,1);
+		SetWeapon(arg2);
+	}
+	else
+	{
+		GiveInventory(arg3,1);
+		SetWeapon(arg3);
+	}
+}
+
+function SItmFunc (str arg1, str arg2)
+{
+	if(CheckInventory(arg1))
+	{
+		TakeInventory(arg2,1);
+		TakeInventory(arg1,1);
+	}
+	else
+	{
+		GiveInventory(arg2,1);
+		GiveInventory(arg1,1);
+	}
+}
+
 #include "CWKeyFinder.h"	// Key press finder
 #include "CWAttach.h"		// Attachment and detatchment
 #include "CWAtchMenu.h"		// Customization menu
