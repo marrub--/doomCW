@@ -4,9 +4,6 @@ A mod where you use inventory hacks to hack your inventory.
 
 ..Wait, is that right? Yeah, I think it is.
 
-	Current version: v1.4 r2
-	Code-name: "weback yo"
-
 How to Play
 ===
 
