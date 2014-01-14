@@ -34,7 +34,7 @@ Used as an argument for the CW_ATTACH script
 - SHOG_SIL
 Used as an argument for the CW_GETVAL script
 - GV_PSTF1
-- GV_PSTF2 (unused)
+- GV_PSTF2
 
 Maximum integer
 - INT_MAX

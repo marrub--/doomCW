@@ -28,7 +28,7 @@ actor CPistol : CWeapon
 		PISG A 9 A_SetTics(CallACS("CW_GETVAL",GV_PSTF1))
 		TNT1 A 0 A_AlertMonsters
 		TNT1 A 0 A_GunFlash
-		PISG A 5 BRIGHT A_FireBullets(CallACS("CW_GETVAL",GV_PSTF2),0,1,5,"BulletPuff")
+		PISG A 4 BRIGHT A_FireBullets(CallACS("CW_GETVAL",GV_PSTF2),0,1,5,"BulletPuff")
 		PISG DC 4
 		PISG A 2 A_Refire
 		goto Ready
@@ -68,7 +68,7 @@ actor CPistolSil : CWeapon
 	// Fire //
 	Fire:
 		PISS A 9 A_SetTics(CallACS("CW_GETVAL",GV_PSTF1))
-		PISS A 5 A_FireBullets(CallACS("CW_GETVAL",GV_PSTF2),0,1,5,"BulletPuff")
+		PISS A 4 A_FireBullets(CallACS("CW_GETVAL",GV_PSTF2),0,1,5,"BulletPuff")
 		PISS DC 4
 		PISS A 2 A_Refire
 		goto Ready
@@ -215,3 +215,5 @@ actor CPistolSilCMenu : Weapon
 		goto Ready
 	}
 }
+
+///I WANT JOHN ROMERO TO Flail his wavy hair in my face WHILE JOHN CARMACK FUCKS MY Acer's harddrive and then installs his own OS on it made entirely from scratch by him
