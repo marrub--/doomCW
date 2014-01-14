@@ -21,6 +21,7 @@ actor CWeapon : Weapon
 actor dummy : Inventory {Inventory.MaxAmount 1}
 
 // Attachments
+actor PistolSil : dummy {}
 actor PistolLaz : dummy {}
 actor PistolLTrig : dummy {}
 actor Laz : dummy {}

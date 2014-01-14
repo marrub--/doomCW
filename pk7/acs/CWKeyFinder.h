@@ -13,7 +13,7 @@ script "CW_KEYFIND" ENTER
 	case BT_RELOAD+BT_SPEED:
 		if(!CheckInventory("DNS"))
 		{
-		if(CheckWeapon("CPistol")||CheckWeapon("CPistolSil"))
+		if(CheckWeapon("CPistol"))
 			ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_SIL);
 		if(CheckWeapon("CShotgun")||CheckWeapon("CShotgunSil"))
 			ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_SIL);
@@ -23,7 +23,7 @@ script "CW_KEYFIND" ENTER
 	case BT_RELOAD:
 		if(CheckInventory("CMenu"))
 		{
-			if((CheckWeapon("CPistolCMenu")||CheckWeapon("CPistolSilCMenu")))
+			if(CheckWeapon("CPistolCMenu"))
 			{
 				if(CheckInventory("CMenuNext"))
 				{
@@ -40,7 +40,7 @@ script "CW_KEYFIND" ENTER
 		}
 	break;
 	case BT_ZOOM:
-		if(CheckWeapon("CPistol")||CheckWeapon("CPistolSil"))
+		if(CheckWeapon("CPistol"))
 			ACS_NamedExecuteAlways("CW_ATTACH",0,CM_PISTL);
 		
 		delay(10);

@@ -7,7 +7,7 @@ script "CW_MENUOPEN" (int arg1)
 	HudMessage(s:"Reload: Attach"; HUDMSG_PLAIN,60,0,160.0,15.0,1.0,1.0);
 	int CMenuX;
 	int CMenuY;
-	if(CheckWeapon("CPistolCMenu")||CheckWeapon("CPistolSilCMenu"))
+	if(CheckWeapon("CPistolCMenu"))
 	{
 		CMenuX = 185.0;
 		CMenuY = 106.0;

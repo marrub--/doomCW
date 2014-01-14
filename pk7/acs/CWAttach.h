@@ -8,7 +8,7 @@ script "CW_ATTACH" (int arg1)
 		print(s:"Warning: Default attachment was used.\nPlease report this.");
 	break;
 	case PIST_SIL:
-		SWepFunc("CPistolSil", "CPistolToNorm", "CPistolToSil");
+		SWepFunc("PistolSil", "CPistolToNorm", "CPistolToSil");
 	break;
 	case PIST_LAZ:
 		SItmFunc("PistolLaz", "PistolAccuracyMod");
@@ -17,11 +17,6 @@ script "CW_ATTACH" (int arg1)
 		SItmFunc("PistolLTrig", "PistolFSpeedMod");
 	break;
 	case CM_PISTL:
-		if(CheckWeapon("CPistolSil"))
-		{
-			GiveInventory("CPistolSilCMenu",1);
-			SetWeapon("CPistolSilCMenu");
-		}
 		if(CheckWeapon("CPistol"))
 		{
 			GiveInventory("CPistolCMenu",1);

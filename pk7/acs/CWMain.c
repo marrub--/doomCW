@@ -12,7 +12,7 @@
 
 #define INT_MAX			0x7FFFFFFF
 
-function SWepFunc (str arg1, str arg2, str arg3)
+function void SWepFunc (str arg1, str arg2, str arg3)
 {
 	if(CheckInventory(arg1))
 	{
@@ -26,7 +26,7 @@ function SWepFunc (str arg1, str arg2, str arg3)
 	}
 }
 
-function SItmFunc (str arg1, str arg2)
+function void SItmFunc (str arg1, str arg2)
 {
 	if(CheckInventory(arg1))
 	{

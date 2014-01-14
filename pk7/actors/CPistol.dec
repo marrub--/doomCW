@@ -2,29 +2,43 @@ actor CPistol : CWeapon
 {
 	Weapon.SlotNumber 2
 	Weapon.AmmoType1 "Clip"
-	AttackSound "weapons/pistol"
 	Obituary "$CW_PISTOL_OBIT"
 	Tag "$CW_PISTOL_WTAG"
 	States
 	{
 	// Select //
 	Select:
-		TNT1 A 0 A_GiveInventory("DNS",1)
-		PISG A 1 A_Raise
+		PISG A 0 A_GiveInventory("DNS",1)
+		PISG A 0 A_JumpIfInventory("PistolSil",1,1)
+		goto SelectLoop
+	SilSelect:
+		PISS A 0
+	SelectLoop:
+		"####" A 1 A_Raise
 		wait
+	
 	Deselect:
-		TNT1 A 0 A_GiveInventory("DNS",1)
-		PISG A 1 A_Lower
+		PISG A 0 A_GiveInventory("DNS",1)
+		PISG A 0 A_JumpIfInventory("PistolSil",1,1)
+		goto DeselectLoop
+	SilDeselect:
+		PISS A 0
+	DeselectLoop:
+		"####" A 1 A_Lower
 		wait
 	
 	// Ready //
+	SilReady:
+		PISS A 1 A_WeaponReady(WRF_ALLOWZOOM)
 	Ready:
 		TNT1 A 0 A_TakeInventory("DNS",1)
+		TNT1 A 0 A_JumpIfInventory("PistolSil",1,"SilReady")
 		PISG A 1 A_WeaponReady(WRF_ALLOWZOOM)
 		loop
 	
 	// Fire //
 	Fire:
+		TNT1 A 0 A_JumpIfInventory("PistolSil",1,"SilFire")
 		PISG A 9 A_SetTics(CallACS("CW_GETVAL",GV_PSTF1))
 		TNT1 A 0 A_AlertMonsters
 		TNT1 A 0 A_GunFlash
@@ -32,46 +46,18 @@ actor CPistol : CWeapon
 		PISG DC 4
 		PISG A 2 A_Refire
 		goto Ready
-	
-	Flash:
-		PISF Z 4 A_Light2
-		goto LightDone
-	}
-}
-
-actor CPistolSil : CWeapon
-{
-	+WEAPON.CHEATNOTWEAPON
-	Weapon.SlotNumber 2
-	Weapon.AmmoType1 "Clip"
-	AttackSound "weapons/silpistol"
-	Obituary "$CW_SPISTL_OBIT"
-	Tag "$CW_SPISTL_WTAG"
-	States
-	{
-	// Select //
-	Select:
-		TNT1 A 0 A_GiveInventory("DNS",1)
-		PISS A 1 A_Raise
-		wait
-	Deselect:
-		TNT1 A 0 A_GiveInventory("DNS",1)
-		PISS A 1 A_Lower
-		wait
-	
-	// Ready //
-	Ready:
-		TNT1 A 0 A_TakeInventory("DNS",1)
-		PISS A 1 A_WeaponReady(WRF_ALLOWZOOM)
-		loop
-	
-	// Fire //
-	Fire:
+	SilFire:
 		PISS A 9 A_SetTics(CallACS("CW_GETVAL",GV_PSTF1))
+		TNT1 A 0 A_PlaySound("weapons/silpistol",1)
 		PISS A 4 A_FireBullets(CallACS("CW_GETVAL",GV_PSTF2),0,1,5,"BulletPuff")
 		PISS DC 4
 		PISS A 2 A_Refire
 		goto Ready
+	
+	Flash:
+		PISF Z 1 A_PlaySound("weapons/pistol",1)
+		PISF Z 3 A_Light2
+		goto LightDone
 	}
 }
 
@@ -91,11 +77,10 @@ actor CPistolToSil : Weapon
 		TNT1 A 0
 		stop
 	Ready:
-		TNT1 A 0 A_TakeInventory("CPistol")
 		TNT1 A 5 A_PlaySound("weapons/pistolupg",1)
 		TNT1 A 20
-		TNT1 A 0 A_GiveInventory("CPistolSil")
-		TNT1 A 0 A_SelectWeapon("CPistolSil")
+		TNT1 A 0 A_GiveInventory("PistolSil")
+		TNT1 A 0 A_SelectWeapon("CPistol")
 		TNT1 A 0 A_TakeInventory("CPistolToSil")
 		stop
 	Fire:
@@ -110,10 +95,9 @@ actor CPistolToNorm : CPistolToSil
 	States
 	{
 	Ready:
-		TNT1 A 0 A_TakeInventory("CPistolSil")
+		TNT1 A 0 A_TakeInventory("PistolSil")
 		TNT1 A 5 A_PlaySound("weapons/pistolupg",1)
 		TNT1 A 10
-		TNT1 A 0 A_GiveInventory("CPistol")
 		TNT1 A 0 A_SelectWeapon("CPistol")
 		TNT1 A 0 A_TakeInventory("CPistolToNorm")
 		stop
@@ -127,91 +111,61 @@ actor CPistolCMenu : Weapon
 	Tag "$CW_PISTOL_WTAG"
 	States
 	{
+	// Select //
 	Select:
 		TNT1 A 0 A_GiveInventory("DNS",1)
-		TNT1 A 0 A_Raise
-		PISC A 1 A_Raise
+		TNT1 A 0 A_JumpIfInventory("PistolSil",1,1)
+		goto SelectLoop
+	SilSelect:
+		TNT1 B 0
+	SelectLoop:
+		TNT1 "#" 0 A_Raise
+		PISC "#" 1 A_Raise
 		loop
+	
 	Deselect:
-		TNT1 A 0
-		stop
-	Ready:
-		TNT1 A 0 A_GiveInventory("CMenu",1)
-		TNT1 A 0 ACS_NamedExecute("CW_MENUOPEN",0)
-		PISC A 1 A_WeaponReady(WRF_ALLOWZOOM|WRF_NOSWITCH)
-		wait
-	Zoom:
-		TNT1 A 0 A_TakeInventory("CMenu",1)
-		TNT1 A 0 ACS_NamedExecute("CW_MENUCLOSE",0)
-		TNT1 A 0 A_Lower
-		PISC A 1 A_Lower
-		TNT1 A 0 A_Lower
-		PISC A 1 A_Lower
-		TNT1 A 0 A_Lower
-		PISC A 1 A_Lower
-		TNT1 A 0 A_Lower
-		PISC A 1 A_Lower
-		TNT1 A 0 A_Lower
-		PISC A 1 A_Lower
-		TNT1 A 0 A_SelectWeapon("CPistol")
-		TNT1 A 0 A_TakeInventory("CPistolCMenu")
-		stop
-	Fire:
-		TNT1 A 0 A_JumpIfInventory("CMenuNext",1,"Fire2")
-		TNT1 A 0 A_GiveInventory("CMenuNext",1)
-		PISC A 13 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
-		goto Ready
-	Fire2:
-		TNT1 A 0 A_TakeInventory("CMenuNext",1)
-		PISC A 13 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
-		goto Ready
-	}
-}
-
-actor CPistolSilCMenu : Weapon
-{
-	+WEAPON.NOALERT
-	+WEAPON.CHEATNOTWEAPON
-	Tag "$CW_SPISTL_WTAG"
-	States
-	{
-	Select:
 		TNT1 A 0 A_GiveInventory("DNS",1)
-		TNT1 A 0 A_Raise
-		PISC B 1 A_Raise
+		TNT1 A 0 A_JumpIfInventory("PistolSil",1,1)
+		goto DeselectLoop
+	SilDeselect:
+		TNT1 B 0
+	DeselectLoop:
+		TNT1 "#" 0 A_Lower
+		PISC "#" 1 A_Lower
 		loop
-	Deselect:
-		TNT1 A 0
-		stop
+	
+	// Ready //
 	Ready:
-		TNT1 A 0 A_GiveInventory("CMenu",1)
-		TNT1 A 0 ACS_NamedExecute("CW_MENUOPEN",0)
-		PISC B 1 A_WeaponReady(WRF_ALLOWZOOM|WRF_NOSWITCH)
+		TNT1 "#" 0 A_GiveInventory("CMenu",1)
+		TNT1 "#" 0 ACS_NamedExecute("CW_MENUOPEN",0)
+		PISC "#" 1 A_WeaponReady(WRF_ALLOWZOOM|WRF_NOSWITCH)
 		wait
 	Zoom:
-		TNT1 A 0 A_TakeInventory("CMenu",1)
-		TNT1 A 0 ACS_NamedExecute("CW_MENUCLOSE",0)
-		TNT1 A 0 A_Lower
-		PISC B 1 A_Lower
-		TNT1 A 0 A_Lower
-		PISC B 1 A_Lower
-		TNT1 A 0 A_Lower
-		PISC B 1 A_Lower
-		TNT1 A 0 A_Lower
-		PISC B 1 A_Lower
-		TNT1 A 0 A_Lower
-		PISC B 1 A_Lower
-		TNT1 A 0 A_SelectWeapon("CPistolSil")
-		TNT1 A 0 A_TakeInventory("CPistolSilCMenu")
+		TNT1 "#" 0 A_TakeInventory("CMenu",1)
+		TNT1 "#" 0 ACS_NamedExecute("CW_MENUCLOSE",0)
+		TNT1 "#" 0 A_Lower
+		PISC "#" 1 A_Lower
+		TNT1 "#" 0 A_Lower
+		PISC "#" 1 A_Lower
+		TNT1 "#" 0 A_Lower
+		PISC "#" 1 A_Lower
+		TNT1 "#" 0 A_Lower
+		PISC "#" 1 A_Lower
+		TNT1 "#" 0 A_Lower
+		PISC "#" 1 A_Lower
+		TNT1 "#" 0 A_SelectWeapon("CPistol")
+		TNT1 "#" 0 A_TakeInventory("CPistolCMenu")
 		stop
+	
+	// Fire //
 	Fire:
-		TNT1 A 0 A_JumpIfInventory("CMenuNext",1,"Fire2")
-		TNT1 A 0 A_GiveInventory("CMenuNext",1)
-		PISC B 13 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 "#" 0 A_JumpIfInventory("CMenuNext",1,"Fire2")
+		TNT1 "#" 0 A_GiveInventory("CMenuNext",1)
+		PISC "#" 13 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
 		goto Ready
 	Fire2:
-		TNT1 A 0 A_TakeInventory("CMenuNext",1)
-		PISC B 13 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 "#" 0 A_TakeInventory("CMenuNext",1)
+		PISC "#" 13 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
 		goto Ready
 	}
 }
