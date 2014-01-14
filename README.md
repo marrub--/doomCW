@@ -1,25 +1,49 @@
-About
-===
-A mod where you use inventory hacks to hack your inventory.
+Channel: irc://irc.esper.net/#doomcw
+(some clients may parse that wrong and go to ##doomcw, please go to #doomcw!)
 
-..Wait, is that right? Yeah, I think it is.
+Features
+========
+To attach Silencers
+-------------------
+	Hold RUN and RELOAD to attach or detatch a Silencer.
 
-How to Play
-===
+To use the Customization Menu
+-----------------------------
+	Press ZOOM to open the Customization Menu.
+	Press RELOAD to attach an Attachment.
+	Press FIRE to scroll the menu.
 
-	To attach Silencers
-		Hold RUN and RELOAD to attach or detatch a Silencer.
-	
-	To use the Customization Menu
-		Press ZOOM to open the Customization Menu.
-		Press RELOAD to attach an Attachment.
-		Press FIRE to scroll the menu.
+How to play
+===========
+Option 1:
+* Go to the releases page and download the latest release there.
+Option 2:
+* Clone the repository (Download ZIP on the main page)
+* Zip the pk7/ folder contents
+* Rename the zip to doomcw.pk3
 
-How to Build
-===
+ACS Stuff
+=========
+Definitions in CWMain.c
+-----------------------
+Used as an argument for the CW_ATTACH script
+- PIST_SIL
+- PIST_LAZ
+- PIST_TRG
+- CM_PISTL
+- SHOG_SIL
+Used as an argument for the CW_GETVAL script
+- GV_PSTF1
+- GV_PSTF2 (unused)
 
-	1	: Clone the git to your desired location.
-		  (If you don't have a git client, just click Download ZIP)
+Maximum integer
+- INT_MAX
 
-	2	: Edit the makepk7 batch file to point to 7zip and run it
-	3	: If you don't have 7zip, just drag the pk7 folder onto gzdoom/zdoom.exe
+Scripts
+-------
+- CW_KEYFIND - Looping script that checks some buttons and does stuff in a switch
+- CW_ATTACH - Huge-ass switch that does some CheckInventory comparisons
+- CW_MENUOPEN - Terminatable looping script that opens the Customization Menu.
+- CW_MENUCLOSE - Terminates CW_MENUOPEN and closes the HudMessages.
+- CW_GETVAL - Switch to be used in DECORATE for gun modifications.
+- CW_LASER - Looping script that spawns a laser pointer if you have one attached
