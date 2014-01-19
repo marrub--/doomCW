@@ -48,8 +48,8 @@ actor CPistol : CWeapon
 		goto Ready
 	SilFire:
 		PISS A 9 A_SetTics(CallACS("CW_GETVAL",GV_PSTF1))
-		TNT1 A 0 A_PlaySound("weapons/silpistol",1)
-		PISS A 4 A_FireBullets(CallACS("CW_GETVAL",GV_PSTF2),0,1,4,"BulletPuff")
+		PISS A 2 A_PlaySound("weapons/silpistol",1)
+		PISS A 2 A_FireBullets(CallACS("CW_GETVAL",GV_PSTF2),0,1,4,"BulletPuff")
 		PISS DC 3
 		PISS A 5 A_Refire
 		goto Ready
@@ -91,7 +91,6 @@ actor CPistolToSil : Weapon
 
 actor CPistolToNorm : CPistolToSil
 {
-	Tag "$CW_SPISTL_WTAG"
 	States
 	{
 	Ready:

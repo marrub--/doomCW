@@ -2,8 +2,8 @@ actor CShotgun : CWeapon replaces Shotgun
 {
 	Weapon.SlotNumber 3
 	Weapon.AmmoType1 "Shell"
-	Obituary "$CW_SHTGUN_OBIT"
-	Tag "$CW_SHTGUN_WTAG"
+	Obituary "$CW_SHOTGN_OBIT"
+	Tag "$CW_SHOTGN_WTAG"
 	States
 	{
 	// Select //
@@ -72,8 +72,9 @@ actor CShotgun : CWeapon replaces Shotgun
 
 actor CShotgunToSil : Weapon
 {
+	+WEAPON.NOALERT
 	+WEAPON.CHEATNOTWEAPON
-	Tag "$CW_PISTOL_WTAG"
+	Tag "$CW_SHOTGN_WTAG"
 	States
 	{
 	Select:
@@ -99,7 +100,6 @@ actor CShotgunToSil : Weapon
 
 actor CShotgunToNorm : CShotgunToSil
 {
-	Tag "$CW_SPISTL_WTAG"
 	States
 	{
 	Ready:

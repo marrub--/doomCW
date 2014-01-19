@@ -3,5 +3,6 @@
 CW_PISTOL_WTAG = "Beretta";
 CW_PISTOL_OBIT = "%o was shot by %k's lovely Beretta.";
 
-CW_SPISTL_WTAG = "Silenced Beretta";
-CW_SPISTL_OBIT = "%o was shot by %k's lovely, silenced Beretta.";
+// Shotgun
+CW_SHOTGN_WTAG = "Shotgun";
+CW_SHOTGN_OBIT = "%k showed %o their cool shotgun.";
