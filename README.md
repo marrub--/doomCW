@@ -1,5 +1,4 @@
 Channel: irc://irc.esper.net/#doomcw
-(some clients may parse that wrong and go to ##doomcw, please go to #doomcw!)
 
 Features
 ========
