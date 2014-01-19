@@ -6,6 +6,10 @@ actor CShotgun : CWeapon replaces Shotgun
 	Tag "$CW_SHOTGN_WTAG"
 	States
 	{
+	Spawn:
+		SHOG A 1
+		loop
+	
 	// Select //
 	Select:
 		SHTG A 0 A_GiveInventory("DNS")
