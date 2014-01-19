@@ -2,13 +2,14 @@ actor CShotgun : CWeapon replaces Shotgun
 {
 	Weapon.SlotNumber 3
 	Weapon.AmmoType1 "Shell"
+	Weapon.AmmoGive1 8
 	Obituary "$CW_SHOTGN_OBIT"
 	Tag "$CW_SHOTGN_WTAG"
 	States
 	{
 	Spawn:
-		SHOT A 1
-		loop
+		SHOT A -1
+		stop
 	
 	// Select //
 	Select:

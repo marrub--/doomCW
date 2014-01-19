@@ -13,6 +13,7 @@ actor CWeapon : Weapon
 	+WEAPON.NOAUTOFIRE
 	Weapon.KickBack 40
 	Weapon.AmmoUse1 1
+	Weapon.AmmoGive1 4
 }
 
 #include "actors/CPlayer.dec"	// Player
