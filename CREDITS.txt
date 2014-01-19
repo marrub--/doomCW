@@ -1,4 +1,3 @@
 Credits:
-	JoeyTD for the silencer sprites and ironsighted pistol sprite
-	torridGristle for the L4D2 sound rip
+	JoeyTD for the silencer sprites
 	Bloax for the pistol customization sprite

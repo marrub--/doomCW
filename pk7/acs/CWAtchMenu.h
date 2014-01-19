@@ -24,8 +24,8 @@ script "CW_MENUOPEN" (int arg1)
 	}
 	if(CheckWeapon("CShotgunCMenu"))
 	{
-		CMenuX = 185.0;
-		CMenuY = 106.0;
+		CMenuX = 128.0;
+		CMenuY = 102.0;
 		if(CheckInventory("ShotgunLaz"))
 		{
 			SetFont("CMENULAZ");

@@ -31,9 +31,13 @@ Used as an argument for the CW_ATTACH script
 - PIST_TRG
 - CM_PISTL
 - SHOG_SIL
+- SHOG_LAZ
+- SHOG_TRG
+- CM_SHTGN
 Used as an argument for the CW_GETVAL script
 - GV_PSTF1
 - GV_PSTF2
+- GV_SHTF1
 
 Maximum integer
 - INT_MAX
