@@ -2,7 +2,7 @@
 
 script "CW_LASER" ENTER
 {
-	if(CheckInventory("PistolLaz") && CheckWeapon("CPistol"))
+	if((CheckInventory("PistolLaz") && CheckWeapon("CPistol")) || (CheckInventory("ShotgunLaz") && CheckWeapon("CShotgun")))
 	{
 		int a = GetActorAngle(0);
 		int p = GetActorPitch(0);

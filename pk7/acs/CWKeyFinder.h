@@ -36,12 +36,27 @@ script "CW_KEYFIND" ENTER
 						ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_LAZ);
 				}
 			}
+			if(CheckWeapon("CShotgunCMenu"))
+			{
+				if(CheckInventory("CMenuNext"))
+				{
+					if(CheckInventory("LTrig"))
+						ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_TRG);
+				}
+				else
+				{
+					if(CheckInventory("Laz"))
+						ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_LAZ);
+				}
+			}
 			delay(10);
 		}
 	break;
 	case BT_ZOOM:
 		if(CheckWeapon("CPistol"))
 			ACS_NamedExecuteAlways("CW_ATTACH",0,CM_PISTL);
+		if(CheckWeapon("CShotgun"))
+			ACS_NamedExecuteAlways("CW_ATTACH",0,CM_SHTGN);
 		
 		delay(10);
 	break;

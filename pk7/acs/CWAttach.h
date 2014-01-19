@@ -17,14 +17,19 @@ script "CW_ATTACH" (int arg1)
 		SItmFunc("PistolLTrig", "PistolFSpeedMod");
 	break;
 	case CM_PISTL:
-		if(CheckWeapon("CPistol"))
-		{
-			GiveInventory("CPistolCMenu",1);
-			SetWeapon("CPistolCMenu");
-		}
+		CWepFunc("CPistol", "CPistolCMenu");
 	break;
 	case SHOG_SIL:
 		SWepFunc("ShotgunSil", "CShotgunToNorm", "CShotgunToSil");
+	break;
+	case SHOG_LAZ:
+		SItmFunc2("ShotgunLaz");
+	break;
+	case SHOG_TRG:
+		SItmFunc("ShotgunLTrig", "ShotgunFSpeedMod");
+	break;
+	case CM_SHTGN:
+		CWepFunc("CShotgun", "CShotgunCMenu");
 	break;
 	}
 }

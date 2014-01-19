@@ -71,3 +71,17 @@ Sprite SHTSD0, 320, 200
 	Patch SHTGD0, 0, 0
 	{UseOffsets}
 }
+
+Sprite SHTCA0, 320, 240
+{
+	Offset 0, 39
+	Patch SHTGC0, 0, 39
+	{UseOffsets}
+}
+
+Sprite SHTCB0, 320, 240
+{
+	Offset 0, 39
+	Patch SHTSC0, 0, 39
+	{UseOffsets}
+}

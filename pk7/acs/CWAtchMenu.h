@@ -22,6 +22,21 @@ script "CW_MENUOPEN" (int arg1)
 			HudMessage(s:"A"; HUDMSG_PLAIN|HUDMSG_ALPHA|HUDMSG_NOTWITHFULLMAP,69,0,CMenuX,CMenuY,1.0,1.0);
 		}
 	}
+	if(CheckWeapon("CShotgunCMenu"))
+	{
+		CMenuX = 185.0;
+		CMenuY = 106.0;
+		if(CheckInventory("ShotgunLaz"))
+		{
+			SetFont("CMENULAZ");
+			HudMessage(s:"A"; HUDMSG_PLAIN|HUDMSG_ALPHA|HUDMSG_NOTWITHFULLMAP,70,0,CMenuX,CMenuY,1.0,1.0);
+		}
+		if(CheckInventory("ShotgunLTrig"))
+		{
+			SetFont("CMENUTRG");
+			HudMessage(s:"A"; HUDMSG_PLAIN|HUDMSG_ALPHA|HUDMSG_NOTWITHFULLMAP,69,0,CMenuX,CMenuY,1.0,1.0);
+		}
+	}
 	if(CheckInventory("CMenuNext"))
 		SetFont("CMENU2");
 	else

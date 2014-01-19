@@ -1,5 +1,6 @@
 const int GV_PSTF1 = 1;
 const int GV_PSTF2 = 2;
+const int GV_SHTF1 = 3;
 
 DamageType NoDam
 {
@@ -19,18 +20,25 @@ actor CWeapon : Weapon
 #include "actors/CShotgun.dec"	// Shotgun
 
 actor dummy : Inventory {Inventory.MaxAmount 1}
+actor mod : dummy {Inventory.MaxAmount 2}
 
 // Attachments
-actor PistolSil : dummy {}
-actor PistolLaz : dummy {}
-actor PistolLTrig : dummy {}
 actor Laz : dummy {}
 actor LTrig : dummy {}
 
+actor PistolSil : dummy {}
+actor PistolLaz : dummy {}
+actor PistolLTrig : dummy {}
+
 actor ShotgunSil : dummy {}
+actor ShotgunLaz : dummy {}
+actor ShotgunLTrig : dummy {}
+
 // Modifier items
-actor PistolFSpeedMod : dummy {Inventory.MaxAmount 2}
-actor PistolAccuracyMod : dummy {Inventory.MaxAmount 2}
+actor PistolFSpeedMod : mod {}
+actor PistolAccuracyMod : mod {}
+
+actor ShotgunFSpeedMod : mod {}
 
 // Action items
 actor CMenu : dummy {}

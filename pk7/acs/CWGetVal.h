@@ -4,6 +4,7 @@ script "CW_GETVAL" (int arg1)
 {
 	int pis_spdmod = CheckInventory("PistolFSpeedMod");
 	int pis_accmod = CheckInventory("PistolAccuracyMod");
+	int sht_spdmod = CheckInventory("ShotgunFSpeedMod");
 	switch(arg1)
 	{
 	default:
@@ -14,6 +15,9 @@ script "CW_GETVAL" (int arg1)
 	break;
 	case GV_PSTF2:
 		SetResultValue(5-pis_accmod);
+	break;
+	case GV_SHTF1:
+		SetResultValue(3-sht_spdmod);
 	break;
 	}
 }
