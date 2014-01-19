@@ -7,7 +7,7 @@ actor CShotgun : CWeapon replaces Shotgun
 	States
 	{
 	Spawn:
-		SHOG A 1
+		SHOT A 1
 		loop
 	
 	// Select //
