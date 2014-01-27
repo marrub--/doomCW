@@ -25,28 +25,30 @@ script "CW_KEYFIND" ENTER
 		{
 			if(CheckWeapon("CPistolCMenu"))
 			{
-				if(CheckInventory("CMenuNext"))
+				switch(CheckInventory("CMenuNext"))
 				{
+				case 0:
 					if(CheckInventory("LTrig"))
 						ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_TRG);
-				}
-				else
-				{
+				break;
+				case 1:
 					if(CheckInventory("Laz"))
 						ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_LAZ);
+				break;
 				}
 			}
 			if(CheckWeapon("CShotgunCMenu"))
 			{
-				if(CheckInventory("CMenuNext"))
+				switch(CheckInventory("CMenuNext"))
 				{
+				case 0:
 					if(CheckInventory("LTrig"))
 						ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_TRG);
-				}
-				else
-				{
+				break;
+				case 1:
 					if(CheckInventory("Laz"))
 						ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_LAZ);
+				break;
 				}
 			}
 			delay(10);
