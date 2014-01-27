@@ -1,4 +1,4 @@
-actor CPistol : CWeapon
+actor CPistol : CWeapon replaces Pistol
 {
 	Weapon.SlotNumber 2
 	Weapon.AmmoType1 "Clip"
@@ -6,6 +6,10 @@ actor CPistol : CWeapon
 	Tag "$CW_PISTOL_WTAG"
 	States
 	{
+	// Spawn //
+	Spawn:
+		PIST A -1
+		wait
 	// Select //
 	Select:
 		PISG A 0 A_GiveInventory("DNS")
