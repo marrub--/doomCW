@@ -24,8 +24,33 @@ actor dummy : Inventory {Inventory.MaxAmount 1}
 actor mod : dummy {Inventory.MaxAmount 2}
 
 // Attachments
-actor Laz : dummy {}
-actor LTrig : dummy {}
+actor Laz : dummy
+{
+	Inventory.PickupMessage "Picked up a Laser Sight"
+	States
+	{
+	Spawn:
+		BOXX A -1
+		wait
+	}
+}
+
+actor LTrig : dummy
+{
+	Inventory.PickupMessage "Picked up a Light Trigger."
+	States
+	{
+	Spawn:
+		BOXX A -1
+		wait
+	}
+}
+
+actor BlurReplacer : RandomSpawner replaces BlurSphere
+{
+	DropItem Laz
+	DropItem LTrig
+}
 
 actor PistolSil : dummy {}
 actor PistolLaz : dummy {}
