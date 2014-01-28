@@ -22,7 +22,8 @@ script "CW_MENUOPEN" (int arg1)
 	SetFont("DBIGFONT");
 	HudMessage(s:"Reload:Attach\nFire:Switch"; 0,67,0,160.0,15.0,1.0);
 	int CMenuX, CMenuY, wep1;
-	int atch1, atch2 = 0;
+	int atch1 = 0;
+	int atch2 = 0;
 	
 	if(CheckInventory("Laz"))
 		atch1 = 0x10;
