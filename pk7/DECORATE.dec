@@ -20,6 +20,11 @@ actor CWeapon : Weapon
 actor dummy : Inventory {Inventory.MaxAmount 1}
 actor mod : dummy {Inventory.MaxAmount 2}
 
+/* TO - DO:
+ * Bayonet
+ * Explosive Ammo
+ * Better silencer for the shotgun
+ */
 // Attachments
 actor atch : dummy {States {Spawn: BOXX A -1 A_RailWait wait}}
 actor Laz : atch {Inventory.PickupMessage "Picked up a Laser Sight"}
