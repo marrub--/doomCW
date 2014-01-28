@@ -66,6 +66,24 @@ function void CWepFunc (str arg1, str arg2)
 	}
 }
 
+// Useful functions
+function void SprPrint(str sprite, int id, int x, int y)
+{
+	SetFont(sprite);
+	HudMessage(s:"A"; HUDMSG_PLAIN, id, CR_UNTRANSLATED, x, y, 1.0);
+}
+
+function void SprPrintFade(str sprite, int id, int x, int y, int d, int h)
+{
+	SetFont(sprite);
+	HudMessage(s:"A"; HUDMSG_FADEOUT, id, CR_UNTRANSLATED, x, y, d, h);
+}
+
+function void ClearMsg(int id)
+{
+	HudMessage(s:""; 0,id,0,0,0,0);
+}
+
 #include "CWKeyFinder.h"	// Key press thing
 #include "CWAttach.h"		// Attachment and detatchment
 #include "CWAtchMenu.h"		// Customization menu

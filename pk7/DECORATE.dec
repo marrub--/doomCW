@@ -2,10 +2,7 @@ const int GV_PSTF1 = 1;
 const int GV_PSTF2 = 2;
 const int GV_SHTF1 = 3;
 
-DamageType NoDam
-{
-	Factor 0
-}
+DamageType NoDam {Factor 0}
 
 actor CWeapon : Weapon
 {
@@ -24,27 +21,9 @@ actor dummy : Inventory {Inventory.MaxAmount 1}
 actor mod : dummy {Inventory.MaxAmount 2}
 
 // Attachments
-actor Laz : dummy
-{
-	Inventory.PickupMessage "Picked up a Laser Sight"
-	States
-	{
-	Spawn:
-		BOXX A -1
-		wait
-	}
-}
-
-actor LTrig : dummy
-{
-	Inventory.PickupMessage "Picked up a Light Trigger."
-	States
-	{
-	Spawn:
-		BOXX A -1
-		wait
-	}
-}
+actor atch : dummy {States {Spawn: BOXX A -1 A_RailWait wait}}
+actor Laz : atch {Inventory.PickupMessage "Picked up a Laser Sight"}
+actor LTrig : atch {Inventory.PickupMessage "Picked up a Light Trigger"}
 
 actor BlurReplacer : RandomSpawner replaces BlurSphere
 {

@@ -1,3 +1,4 @@
 Credits:
 	JoeyTD for the silencer sprites
 	Bloax for the pistol customization sprite
+	Kyle873 for some ACS functions
