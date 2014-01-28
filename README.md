@@ -16,6 +16,7 @@ How to play
 ===========
 Option 1:
 * Go to the releases page and download the latest release there.
+
 Option 2:
 * Clone the repository (Download ZIP on the main page)
 * Zip the pk7/ folder contents
