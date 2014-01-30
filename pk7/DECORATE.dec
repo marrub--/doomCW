@@ -45,12 +45,16 @@ actor Attachment : CustomInventory replaces BlurSphere
 	Pickup:
 		TNT1 A 0 A_JumpIfInventory("LTrig", 1, "Pickup1")
 		TNT1 A 0 A_JumpIfInventory("Laz", 1, "Pickup2")
-		TNT1 A 0 A_Jump(128, "Pickup2")
+		TNT1 A 0 A_JumpIfInventory("PumpMech", 1, "Pickup3")
+		TNT1 A 0 A_Jump(128, "Pickup2", "Pickup3")
 	Pickup1:
 		TNT1 A 0 A_GiveInventory("Laz", 1)
 		stop
 	Pickup2:
 		TNT1 A 0 A_GiveInventory("LTrig", 1)
+		stop
+	Pickup3:
+		TNT1 A 0 A_GiveInventory("PumpMech", 1)
 		stop
 	}
 }
