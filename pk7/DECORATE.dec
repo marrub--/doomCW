@@ -25,8 +25,7 @@ actor mod : dummy {Inventory.MaxAmount 2}
  * Bayonet
  * Explosive ammo
  * Better silencer for the shotgun
- * "ACOG" scope2
- * Improved pump mechanism
+ * "ACOG" scope
  * Make the laser sight alert monsters, give it a trail, and make it toggle
  */
 // Attachments
@@ -91,7 +90,6 @@ actor LaserPointer : BulletPuff
 	States
 	{
 	Spawn:
-		TNT1 A 0
 		LAZR A 1
 		Stop
 	}
