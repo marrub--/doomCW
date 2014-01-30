@@ -1,6 +1,7 @@
 const int GV_PSTF1 = 1;
 const int GV_PSTF2 = 2;
 const int GV_SHTF1 = 3;
+const int GV_SHTP1 = 4;
 
 DamageType NoDam {Factor 0}
 
@@ -22,12 +23,16 @@ actor mod : dummy {Inventory.MaxAmount 2}
 
 /* TO - DO:
  * Bayonet
- * Explosive Ammo
+ * Explosive ammo
  * Better silencer for the shotgun
+ * "ACOG" scope2
+ * Improved pump mechanism
+ * Make the laser sight alert monsters, give it a trail, and make it toggle
  */
 // Attachments
 actor Laz : dummy {}
 actor LTrig : dummy {}
+actor PumpMech : dummy {}
 
 actor Attachment : CustomInventory replaces BlurSphere
 {
@@ -56,6 +61,7 @@ actor PistolLTrig : dummy {}
 
 actor ShotgunSil : dummy {}
 actor ShotgunLaz : dummy {}
+actor ShotgunPump : dummy {}
 actor ShotgunLTrig : dummy {}
 
 // Modifier items
@@ -63,11 +69,12 @@ actor PistolFSpeedMod : mod {}
 actor PistolAccuracyMod : mod {}
 
 actor ShotgunFSpeedMod : mod {}
+actor ShotgunPSpeedMod : mod {}
 
 // Action items
 actor CMenu : dummy {}
 actor DNS : dummy {}
-actor CMenuNext : dummy {}
+actor CMenuNext : mod {}
 
 actor LaserPointer : BulletPuff
 {

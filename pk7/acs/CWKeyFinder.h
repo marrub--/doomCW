@@ -49,6 +49,10 @@ script "CW_KEYFIND" ENTER
 					if(CheckInventory("Laz"))
 						ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_LAZ);
 				break;
+				case 2:
+					if(CheckInventory("PumpMech"))
+						ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_PMP);
+				break;
 				}
 			}
 			delay(10);

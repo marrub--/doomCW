@@ -5,14 +5,17 @@
 #define PIST_LAZ	2
 #define PIST_TRG	3
 #define CM_PISTL	4
+
 #define SHOG_SIL	5
 #define SHOG_LAZ	6
 #define SHOG_TRG	7
-#define CM_SHTGN	8
+#define SHOG_PMP	8
+#define CM_SHTGN	9
 
 #define GV_PSTF1	1
 #define GV_PSTF2	2
 #define GV_SHTF1	3
+#define GV_SHTP1	4
 
 #define INT_MAX		0x7FFFFFFF
 

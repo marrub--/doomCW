@@ -28,6 +28,9 @@ script "CW_ATTACH" (int arg1)
 	case SHOG_TRG:
 		SItmFunc("ShotgunLTrig", "ShotgunFSpeedMod");
 	break;
+	case SHOG_PMP:
+		SItmFunc("ShotgunPump", "ShotgunPSpeedMod");
+	break;
 	case CM_SHTGN:
 		CWepFunc("CShotgun", "CShotgunCMenu");
 	break;
