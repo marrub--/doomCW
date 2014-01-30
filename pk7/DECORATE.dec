@@ -26,14 +26,28 @@ actor mod : dummy {Inventory.MaxAmount 2}
  * Better silencer for the shotgun
  */
 // Attachments
-actor atch : dummy {States {Spawn: BOXX A -1 A_RailWait wait}}
-actor Laz : atch {Inventory.PickupMessage "Picked up a Laser Sight"}
-actor LTrig : atch {Inventory.PickupMessage "Picked up a Light Trigger"}
+actor Laz : dummy {}
+actor LTrig : dummy {}
 
-actor BlurReplacer : RandomSpawner replaces BlurSphere
+actor Attachment : CustomInventory replaces BlurSphere
 {
-	DropItem Laz
-	DropItem LTrig
+	Inventory.PickupMessage "$CW_ATTACH_PKUP"
+	States
+	{
+	Spawn:
+		BOXX A -1
+		wait
+	Pickup:
+		TNT1 A 0 A_JumpIfInventory("LTrig", 1, "Pickup1")
+		TNT1 A 0 A_JumpIfInventory("Laz", 1, "Pickup2")
+		TNT1 A 0 A_Jump(128, "Pickup2")
+	Pickup1:
+		TNT1 A 0 A_GiveInventory("Laz", 1)
+		stop
+	Pickup2:
+		TNT1 A 0 A_GiveInventory("LTrig", 1)
+		stop
+	}
 }
 
 actor PistolSil : dummy {}
