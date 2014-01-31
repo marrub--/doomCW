@@ -65,7 +65,7 @@ actor CPistol : CWeapon replaces Pistol
 		TNT1 A 1 A_SetPitch(pitch-0.2)
 		TNT1 A 1 A_SetPitch(pitch-0.2)
 		TNT1 A 1 A_SetPitch(pitch-0.1)
-		TNT1 A 2 A_SetPitch(pitch+0.4)
+		TNT1 A 2 A_SetPitch(pitch+0.5)
 		stop
 	Flash2:
 		TNT1 A 0 A_Quake(1, 2, 0, 16, "")
@@ -73,7 +73,7 @@ actor CPistol : CWeapon replaces Pistol
 		TNT1 A 0 A_SetPitch(pitch-0.1)
 		PISF Z 1 BRIGHT A_Light2
 		PISF Z 1 BRIGHT A_SetPitch(pitch-0.2)
-		TNT1 A 0 A_SetPitch(pitch+0.4)
+		TNT1 A 0 A_SetPitch(pitch+0.3)
 		PISF Z 2 BRIGHT A_Light1
 		goto LightDone
 	}
