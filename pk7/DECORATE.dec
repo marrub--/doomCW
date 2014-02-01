@@ -20,12 +20,16 @@ actor CWeapon : Weapon
 actor dummy : Inventory {Inventory.MaxAmount 1}
 actor mod : dummy {Inventory.MaxAmount 2}
 
+//DEBUG
+/*actor vddbgx : dummy {Inventory.MaxAmount 320}
+actor vddbgy : dummy {Inventory.MaxAmount 200}*/
+
 /* TO - DO:
  * Bayonet
  * Explosive ammo
- * Better silencer for the shotgun
  * "ACOG" scope
- * Make the laser sight alert monsters, give it a trail, and make it toggle
+ * Make the laser sight alert monsters and make it toggle
+ * Sawed off shotgun
  */
 // Attachments
 actor Laz : dummy {}
@@ -104,7 +108,8 @@ actor LaserPointer : BulletPuff
 	States
 	{
 	Spawn:
-		LAZR A 1 NoDelay
-		Stop
+		LAZR A 1 NoDelay BRIGHT A_SetScale(ScaleX-0.2)
+		LAZR A 1 BRIGHT A_FadeOut(0.1)
+		Loop
 	}
 }

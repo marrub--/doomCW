@@ -4,9 +4,9 @@ script "CW_LASER" ENTER
 {
 	if((CheckInventory("PistolLaz") && CheckWeapon("CPistol")) || (CheckInventory("ShotgunLaz") && CheckWeapon("CShotgun")))
 	{
-		int a = GetActorAngle(0);
-		int p = GetActorPitch(0);
-		LineAttack(0, a, p, 0, "LaserPointer", "NoDam", INT_MAX, FHF_NORANDOMPUFFZ);
+		int ang = GetActorAngle(0);
+		int pit = GetActorPitch(0);
+		LineAttack(0, ang, pit, 0, "LaserPointer", "NoDam", INT_MAX, FHF_NORANDOMPUFFZ);
 	}
 	delay(1);
 	restart;

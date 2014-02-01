@@ -141,6 +141,7 @@ actor CPistolCMenu : Weapon
 		loop
 	
 	Deselect:
+		TNT1 A 0 A_Print("This shouldn't be printed. Please report this.")
 		TNT1 A 0 A_GiveInventory("DNS")
 		TNT1 A 0 A_JumpIfInventory("PistolSil",1,1)
 		goto DeselectLoop
@@ -159,6 +160,7 @@ actor CPistolCMenu : Weapon
 		wait
 	Zoom:
 		TNT1 "#" 0 A_TakeInventory("CMenu")
+		TNT1 "#" 0 A_TakeInventory("CMenuNext",0x7fffffff)
 		TNT1 "#" 0 ACS_NamedExecute("CW_MENUCLOSE",0)
 		TNT1 "#" 0 A_Lower
 		PISC "#" 1 A_Lower

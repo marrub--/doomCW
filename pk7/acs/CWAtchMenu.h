@@ -12,6 +12,7 @@ script "CW_MENUOPEN" (int arg1)
 	 * 46 - active attachment 3
 	 * 68 - how to use text
 	 * 71 - c-menu
+	 * 72 - attachment tipbox
 	 */
 	
 	SetHudSize(320,200,0);
@@ -42,6 +43,10 @@ script "CW_MENUOPEN" (int arg1)
 			SprPrint("CMENU3", 44, CMenuX-1.0, CMenuY-30.0);
 		if(CheckInventory("PistolLaz"))
 			SprPrint("CMENU3", 45, CMenuX-1.0, CMenuY-23.0);
+		
+		switch(CheckInventory("CMenuNext")) {
+		case 0: SprPrint("CMTRGTIP", 72, 306.0, 167.0); break;
+		case 1: SprPrint("CMLAZTIP", 72, 306.0, 167.0); break;}
 	break;
 	
 	case 2: // SHOTGUN
@@ -62,14 +67,18 @@ script "CW_MENUOPEN" (int arg1)
 			SprPrint("CMENU3", 45, CMenuX-1.0, CMenuY-23.0);
 		if(CheckInventory("ShotgunPump"))
 			SprPrint("CMENU3", 46, CMenuX-1.0, CMenuY-16.0);
+		
+		switch(CheckInventory("CMenuNext")) {
+		case 0: SprPrint("CMTRGTIP", 72, 306.0, 167.0); break;
+		case 1: SprPrint("CMLAZTIP", 72, 306.0, 167.0); break;
+		case 2: SprPrint("CMPMPTIP", 72, 306.0, 167.0); break;}
 	break;
 	}
 	
-	int CMenu2Y = CMenuY - (30.0 - (7.0 * CheckInventory("CMenuNext")));
-	SprPrint("CMENU2", 30, CMenuX-1.0, CMenu2Y);
+	SprPrint("CMENU2", 30, CMenuX-1.0, CMenuY-(30.0-(7.0*CheckInventory("CMenuNext"))));
 	SprPrint("CMENU1", 71, CMenuX, CMenuY);
 	delay(1);
-	for(int i = 30; i < 71; i++)
+	for(int i = 30; i < 73; i++)
 		ClearMsg(i);
 	restart;
 }
@@ -77,6 +86,6 @@ script "CW_MENUOPEN" (int arg1)
 script "CW_MENUCLOSE" (void)
 {
 	ACS_NamedTerminate("CW_MENUOPEN",0);
-	for(int i = 30; i < 72; i++)
+	for(int i = 30; i < 73; i++)
 		ClearMsg(i);
 }

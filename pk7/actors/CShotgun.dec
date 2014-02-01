@@ -52,6 +52,7 @@ actor CShotgun : CWeapon replaces Shotgun
 		SHTG B 5
 		TNT1 A 0 A_PlaySound("weapons/shogupg",5)
 		SHTG CD 9 A_SetTics(CallACS("CW_GETVAL",GV_SHTP1))
+		TNT1 A 0 A_PlaySound("weapons/shogupg2",5)
 		SHTG CB 5
 		SHTG A 3
 		SHTG A 7 A_Refire
@@ -59,11 +60,15 @@ actor CShotgun : CWeapon replaces Shotgun
 	SilFire:
 		SHTS A 9 A_SetTics(CallACS("CW_GETVAL",GV_PSTF1))
 		TNT1 A 0 A_GunFlash
-		TNT1 A 0 A_PlaySound("weapons/silpistol",1)
-		SHTS A 7 BRIGHT A_FireBullets(5.6,0,7,4,"BulletPuff")
+		TNT1 A 0 A_PlaySound("weapons/silshotgun",1)
+		SHTS A 2 BRIGHT Offset(0,34) A_FireBullets(5.6,0,7,4,"BulletPuff")
+		SHTS A 2 Offset(0,36)
+		SHTS A 2 Offset(0,34)
+		SHTS A 1 Offset(0,33)
 		SHTS B 5
 		TNT1 A 0 A_PlaySound("weapons/shogupg",5)
 		SHTS CD 9 A_SetTics(CallACS("CW_GETVAL",GV_SHTP1))
+		TNT1 A 0 A_PlaySound("weapons/shogupg2",5)
 		SHTS CB 5
 		SHTS A 3
 		SHTS A 7 A_Refire
@@ -174,6 +179,7 @@ actor CShotgunCMenu : Weapon
 		wait
 	Zoom:
 		TNT1 "#" 0 A_TakeInventory("CMenu")
+		TNT1 "#" 0 A_TakeInventory("CMenuNext",0x7fffffff)
 		TNT1 "#" 0 ACS_NamedExecute("CW_MENUCLOSE",0)
 		TNT1 "#" 0 A_Lower
 		SHTC "#" 1 A_Lower
