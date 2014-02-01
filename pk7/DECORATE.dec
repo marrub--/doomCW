@@ -8,7 +8,6 @@ DamageType NoDam {Factor 0}
 actor CWeapon : Weapon
 {
 	+WEAPON.NOALERT
-	+WEAPON.NOAUTOFIRE
 	Weapon.KickBack 40
 	Weapon.AmmoUse1 1
 	Weapon.AmmoGive1 4
