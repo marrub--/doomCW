@@ -5,5 +5,6 @@ CW_PISTOL_OBIT	= "%o was shot by %k's lovely Beretta";
 // Shotgun
 CW_SHOTGN_WTAG	= "Shotgun";
 CW_SHOTGN_OBIT	= "%k showed %o their cool shotgun";
-// Attachments
+// Items
 CW_ATTACH_PKUP	= "Picked up an attachment box";
+CW_BACKPK_PKUP	= "Got a backpack full of ammo! And a nice attachment!";

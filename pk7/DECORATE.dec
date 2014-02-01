@@ -58,6 +58,21 @@ actor Attachment : CustomInventory replaces BlurSphere
 	}
 }
 
+actor BackpackWithAttachment : CustomInventory replaces Backpack
+{
+	Inventory.PickupMessage "$CW_BACKPK_PKUP"
+	States
+	{
+	Spawn:
+		BPAK A -1
+		wait
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Backpack")
+		TNT1 A 0 A_GiveInventory("Attachment")
+		stop
+	}
+}
+
 actor PistolSil : dummy {}
 actor PistolLaz : dummy {}
 actor PistolLTrig : dummy {}
@@ -90,7 +105,7 @@ actor LaserPointer : BulletPuff
 	States
 	{
 	Spawn:
-		LAZR A 1
+		LAZR A 1 NoDelay
 		Stop
 	}
 }
