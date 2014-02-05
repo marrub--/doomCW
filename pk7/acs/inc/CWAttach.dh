@@ -1,6 +1,6 @@
 __library("CWAttach");
 
-__script CW_ATTACH(int arg1)
+script CW_ATTACH(int arg1)
 {
 	switch(arg1)
 	{

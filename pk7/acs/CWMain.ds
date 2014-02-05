@@ -24,6 +24,7 @@ __library("CWMain");
 #define and				&&
 #define or				||
 #define INT_MAX			0x7FFFFFFF
+#define script			__extscript "ACS"
 
 __function void SWepFunc(str arg1, str arg2, str arg3)
 {

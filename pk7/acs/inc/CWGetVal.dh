@@ -1,6 +1,6 @@
 __library("CWGetVal");
 
-__script CW_GETVAL(int arg1)
+script CW_GETVAL(int arg1)
 {
 	int pis_spdmod = CheckInventory("PistolFSpeedMod");
 	int pis_accmod = CheckInventory("PistolAccuracyMod");

@@ -1,6 +1,6 @@
 __library("CWAtchMenu");
 
-__script CW_MENUOPEN(int arg1)
+script CW_MENUOPEN(int arg1)
 {
 	/* id index
 	 * 30 - selected box
@@ -84,7 +84,7 @@ __script CW_MENUOPEN(int arg1)
 	goto start;
 };
 
-__script CW_MENUCLOSE(void)
+script CW_MENUCLOSE(void)
 {
 	ACS_NamedTerminate("CW_MENUOPEN",0);
 	for(int i = 30; i < 73; i++)

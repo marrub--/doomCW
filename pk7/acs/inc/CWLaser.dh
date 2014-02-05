@@ -1,6 +1,6 @@
 __library("CWLaser");
 
-__script CW_LASER(void) __enter
+script CW_LASER(void) __enter
 {
 	start:
 	if( (CheckInventory("PistolLaz") and CheckWeapon("CPistol")) or (CheckInventory("ShotgunLaz") and CheckWeapon("CShotgun")) )

@@ -1,6 +1,6 @@
 __library("CWKeyFinder");
 
-__script CW_KEYFIND(void) __enter
+script CW_KEYFIND(void) __enter
 {
 	start:
 	int rel = GetPlayerInput(-1,MODINPUT_BUTTONS) & BT_RELOAD;
