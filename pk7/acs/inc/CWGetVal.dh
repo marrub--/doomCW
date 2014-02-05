@@ -1,6 +1,6 @@
-#library "CWGetVal"
+__library("CWGetVal");
 
-script "CW_GETVAL" (int arg1)
+__script CW_GETVAL(int arg1)
 {
 	int pis_spdmod = CheckInventory("PistolFSpeedMod");
 	int pis_accmod = CheckInventory("PistolAccuracyMod");
@@ -8,9 +8,6 @@ script "CW_GETVAL" (int arg1)
 	int sht_sp2mod = CheckInventory("ShotgunPSpeedMod");
 	switch(arg1)
 	{
-	default:
-		print(s:"Used default GETVAL value, please report this");
-	break;
 	case GV_PSTF1:
 		SetResultValue(4-pis_spdmod);
 	break;
@@ -23,6 +20,7 @@ script "CW_GETVAL" (int arg1)
 	case GV_SHTP1:
 		SetResultValue(5-sht_sp2mod);
 	break;
-	}
-}
+	};
+	Suspend();
+};
 

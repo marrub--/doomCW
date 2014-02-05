@@ -1,12 +1,9 @@
-#library "CWAttach"
+__library("CWAttach");
 
-script "CW_ATTACH" (int arg1)
+__script CW_ATTACH(int arg1)
 {
 	switch(arg1)
 	{
-	default:
-		print(s:"Warning: Default attachment was used.\nPlease report this.");
-	break;
 	case PIST_SIL:
 		SWepFunc("PistolSil", "CPistolToNorm", "CPistolToSil");
 	break;
@@ -34,6 +31,7 @@ script "CW_ATTACH" (int arg1)
 	case CM_SHTGN:
 		CWepFunc("CShotgun", "CShotgunCMenu");
 	break;
-	}
-}
+	};
+	Suspend();
+};
 

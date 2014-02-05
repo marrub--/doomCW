@@ -1,6 +1,6 @@
-#library "CWAtchMenu"
+__library("CWAtchMenu");
 
-script "CW_MENUOPEN" (int arg1)
+__script CW_MENUOPEN(int arg1)
 {
 	/* id index
 	 * 30 - selected box
@@ -15,9 +15,10 @@ script "CW_MENUOPEN" (int arg1)
 	 * 72 - attachment tipbox
 	 */
 	
+	start:
 	SetHudSize(320,200,0);
 	SetFont("DBIGFONT");
-	HudMessage(s:"Reload:Attach\nFire:Switch"; 0,67,0,160.0,15.0,1.0);
+	__printf<__printf_hud>("Reload:Attach\nFire:Switch\n",0,67,0,160.0,15.0,1.0);
 	int CMenuX, CMenuY, wep1;
 	int atch1 = 0;
 	
@@ -46,7 +47,7 @@ script "CW_MENUOPEN" (int arg1)
 		
 		switch(CheckInventory("CMenuNext")) {
 		case 0: SprPrint("CMTRGTIP", 72, 306.0, 167.0); break;
-		case 1: SprPrint("CMLAZTIP", 72, 306.0, 167.0); break;}
+		case 1: SprPrint("CMLAZTIP", 72, 306.0, 167.0); break;};
 	break;
 	
 	case 2: // SHOTGUN
@@ -71,21 +72,22 @@ script "CW_MENUOPEN" (int arg1)
 		switch(CheckInventory("CMenuNext")) {
 		case 0: SprPrint("CMTRGTIP", 72, 306.0, 167.0); break;
 		case 1: SprPrint("CMLAZTIP", 72, 306.0, 167.0); break;
-		case 2: SprPrint("CMPMPTIP", 72, 306.0, 167.0); break;}
+		case 2: SprPrint("CMPMPTIP", 72, 306.0, 167.0); break;};
 	break;
-	}
+	};
 	
 	SprPrint("CMENU2", 30, CMenuX-1.0, CMenuY-(30.0-(7.0*CheckInventory("CMenuNext"))));
 	SprPrint("CMENU1", 71, CMenuX, CMenuY);
-	delay(1);
+	Delay(1);
 	for(int i = 30; i < 73; i++)
 		ClearMsg(i);
-	restart;
-}
+	goto start;
+};
 
-script "CW_MENUCLOSE" (void)
+__script CW_MENUCLOSE(void)
 {
 	ACS_NamedTerminate("CW_MENUOPEN",0);
 	for(int i = 30; i < 73; i++)
 		ClearMsg(i);
-}
+};
+

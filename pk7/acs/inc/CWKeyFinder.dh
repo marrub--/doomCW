@@ -1,7 +1,8 @@
-#library "CWKeyFinder"
+__library("CWKeyFinder");
 
-script "CW_KEYFIND" ENTER
+__script CW_KEYFIND(void) __enter
 {
+	start:
 	int rel = GetPlayerInput(-1,MODINPUT_BUTTONS) & BT_RELOAD;
 	int spd = GetPlayerInput(-1,MODINPUT_BUTTONS) & BT_SPEED;
 	int zum = GetPlayerInput(-1,MODINPUT_BUTTONS) & BT_ZOOM;
@@ -17,8 +18,8 @@ script "CW_KEYFIND" ENTER
 			ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_SIL);
 		if(CheckWeapon("CShotgun"))
 			ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_SIL);
-		}
-		delay(10);
+		};
+		Delay(10);
 	break;
 	case BT_RELOAD:
 		if(CheckInventory("CMenu"))
@@ -35,8 +36,8 @@ script "CW_KEYFIND" ENTER
 					if(CheckInventory("Laz"))
 						ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_LAZ);
 				break;
-				}
-			}
+				};
+			};
 			if(CheckWeapon("CShotgunCMenu"))
 			{
 				switch(CheckInventory("CMenuNext"))
@@ -53,10 +54,10 @@ script "CW_KEYFIND" ENTER
 					if(CheckInventory("PumpMech"))
 						ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_PMP);
 				break;
-				}
-			}
-			delay(10);
-		}
+				};
+			};
+			Delay(10);
+		};
 	break;
 	case BT_ZOOM:
 		if(CheckWeapon("CPistol"))
@@ -64,10 +65,11 @@ script "CW_KEYFIND" ENTER
 		if(CheckWeapon("CShotgun"))
 			ACS_NamedExecuteAlways("CW_ATTACH",0,CM_SHTGN);
 		
-		delay(10);
+		Delay(10);
 	break;
-	}
-	delay(2);
-	restart;
-}
+	};
+	Delay(2);
+	goto start;
+	Suspend();
+};
 
