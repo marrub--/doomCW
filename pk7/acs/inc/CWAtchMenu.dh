@@ -1,5 +1,19 @@
 __library("CWAtchMenu");
 
+str[3] atchnames =
+{
+	"LTrig";
+	"Laz";
+	"PumpMech";
+};
+
+int[3] atchnums =
+{
+	0x10;
+	0x20;
+	0x40;
+};
+
 script CW_MENUOPEN(int arg1)
 {
 	/* id index
@@ -19,15 +33,12 @@ script CW_MENUOPEN(int arg1)
 	SetHudSize(320,200,0);
 	SetFont("DBIGFONT");
 	__printf<__printf_hud>("Reload:Attach\nFire:Switch\n",0,67,0,160.0,15.0,1.0);
-	int CMenuX, CMenuY, wep1;
+	int CMenuX, CMenuY, wep1, i;
 	int atch1 = 0;
 	
-	if(CheckInventory("LTrig"))
-		atch1 = 0x10;
-	if(CheckInventory("Laz"))
-		atch1 = atch1 + 0x20;
-	if(CheckInventory("PumpMech"))
-		atch1 = atch1 + 0x40;
+	for(i=0;i<3;i++)
+		if(CheckInventory(atchnames[i]))
+			atch1 = (atch1 + atchnums[i]);
 	
 	switch(arg1)
 	{
@@ -79,7 +90,7 @@ script CW_MENUOPEN(int arg1)
 	SprPrint("CMENU2", 30, CMenuX-1.0, CMenuY-(30.0-(7.0*CheckInventory("CMenuNext"))));
 	SprPrint("CMENU1", 71, CMenuX, CMenuY);
 	Delay(1);
-	for(int i = 30; i < 73; i++)
+	for(i = 30; i < 73; i++)
 		ClearMsg(i);
 	goto start;
 };

@@ -3,3 +3,4 @@ Credits:
 	Bloax for the pistol customization sprite
 	Kyle873 for some ACS functions
 	torridGristle for all of the sounds
+	TheZombieKiller for the footstep ACS

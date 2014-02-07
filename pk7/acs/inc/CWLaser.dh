@@ -3,11 +3,11 @@ __library("CWLaser");
 script CW_LASER(void) __enter
 {
 	start:
-	if( (CheckInventory("PistolLaz") and CheckWeapon("CPistol")) or (CheckInventory("ShotgunLaz") and CheckWeapon("CShotgun")) )
+	if((CheckInventory("PistolLaz")&&CheckWeapon("CPistol"))||(CheckInventory("ShotgunLaz")&&CheckWeapon("CShotgun")))
 	{
-		int ang = GetActorAngle(0);
-		int pit = GetActorPitch(0);
-		LineAttack(0, ang, pit, 0, "LaserPointer", "NoDam", INT_MAX, FHF_NORANDOMPUFFZ);
+		fixed angl = GetActorAngle(0);
+		fixed pitc = GetActorPitch(0);
+		LineAttack(0, angl, pitc, 0, "LaserPointer", "NoDam", 32767.9999, 1);
 	};
 	Delay(1);
 	goto start;

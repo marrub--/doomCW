@@ -1,7 +1,6 @@
-weapons/silpistol	DSSPISFR
-weapons/pistolupg	DSPISUP
-
-weapons/silshotgun	DSSHGSFR
-weapons/shogupg		DSSHGCK1
-weapons/shogupg2	DSSHGCK2
-weapons/shotty		DSSHOGFR
+weapons/silpistol DSSPISFR
+weapons/pistolupg DSPISUP
+weapons/silshotgun DSSHGSFR
+weapons/shogupg DSSHGCK1
+weapons/shogupg2 DSSHGCK2
+weapons/shotty DSSHOGFR

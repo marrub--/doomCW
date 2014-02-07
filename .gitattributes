@@ -1,4 +1,4 @@
-*.c text
-*.h text
+*.ds text
+*.dh text
 *.dec text
 *.txt text
