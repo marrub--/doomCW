@@ -30,10 +30,12 @@ script void CW_KEYFIND(void) __enter
 				switch(CheckInventory("CMenuNext"))
 				{
 				case 0:
-					ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_TRG);
+					if(LTrig.inInventory)
+						ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_TRG);
 				break;
 				case 1:
-					ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_LAZ);
+					if(Laz.inInventory)
+						ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_LAZ);
 				break;
 				};
 			};
@@ -42,13 +44,16 @@ script void CW_KEYFIND(void) __enter
 				switch(CheckInventory("CMenuNext"))
 				{
 				case 0:
-					ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_TRG);
+					if(LTrig.inInventory)
+						ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_TRG);
 				break;
 				case 1:
-					ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_LAZ);
+					if(Laz.inInventory)
+						ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_LAZ);
 				break;
 				case 2:
-					ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_PMP);
+					if(PumpMech.inInventory)
+						ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_PMP);
 				break;
 				};
 			};
