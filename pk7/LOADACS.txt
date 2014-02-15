@@ -2,3 +2,4 @@ CWAtchMenu
 CWAttach
 CWGetVal
 CWKeyFinder
+CWLaser

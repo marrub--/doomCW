@@ -8,7 +8,7 @@ script CW_LASER(void) __enter
 	{
 		fixed angl = GetActorAngle(0);
 		fixed pitc = GetActorPitch(0);
-		LineAttack(0, angl, pitc, 0, "LaserPointer", "NoDam", 0x7FFFFFFF, 1);
+		LineAttack(0, angl, pitc, 0, "LaserPointer", "NoDam", 32767.9999, 1);
 	};
 	Delay(1);
 	goto start;

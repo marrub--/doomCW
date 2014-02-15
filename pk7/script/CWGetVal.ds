@@ -10,16 +10,16 @@ script CW_GETVAL(int arg1)
 	switch(arg1)
 	{
 	case GV_PSTF1:
-		return 4-pis_spdmod;
+		SetResultValue(4-pis_spdmod);
 	break;
 	case GV_PSTF2:
-		return 5-pis_accmod;
+		SetResultValue(5-pis_accmod);
 	break;
 	case GV_SHTF1:
-		return 3-sht_spdmod;
+		SetResultValue(3-sht_spdmod);
 	break;
 	case GV_SHTP1:
-		return 5-sht_sp2mod;
+		SetResultValue(5-sht_sp2mod);
 	break;
 	};
 	
