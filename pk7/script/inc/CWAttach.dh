@@ -1,0 +1,13 @@
+#ifndef _CW_ATTACH_DH_
+#define _CW_ATTACH_DH_
+
+#include "CWThings.dh"
+
+__library("CWAttach");
+
+extern __function void SWepFunc(str, str, str);
+extern __function void SItmFunc(str, str);
+extern __function void SItmFunc2(str);
+extern __function void CWepFunc(str, str);
+
+#endif

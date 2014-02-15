@@ -1,0 +1,29 @@
+#ifndef _CW_THINGS_DH_
+#define _CW_THINGS_DH_
+
+#include <zcommon.acs>
+
+#define script			__extscript "ACS"
+#define CallACS(arg1)	ACS_NamedExecuteAlways((arg1), 0)
+#define ClearMsg(arg1)	__printf<__printf_hud>("\n",0,(arg1),0,0,0,0)
+
+// Pistol related
+#define PIST_SIL	1
+#define PIST_LAZ	2
+#define PIST_TRG	3
+#define CM_PISTL	4
+
+// Shotgun related
+#define SHOG_SIL	5
+#define SHOG_LAZ	6
+#define SHOG_TRG	7
+#define SHOG_PMP	8
+#define CM_SHTGN	9
+
+// GetVal arguments
+#define GV_PSTF1	1
+#define GV_PSTF2	2
+#define GV_SHTF1	3
+#define GV_SHTP1	4
+
+#endif

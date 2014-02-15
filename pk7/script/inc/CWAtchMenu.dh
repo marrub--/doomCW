@@ -1,0 +1,11 @@
+#ifndef _CW_ATCHMENU_DH_
+#define _CW_ATCHMENU_DH_
+
+#include "CWThings.dh"
+
+__library("CWAtchMenu");
+
+extern __function void SprPrint(str, int, int, int);
+
+#endif
+

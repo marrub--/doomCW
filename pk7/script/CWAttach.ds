@@ -1,0 +1,89 @@
+#include "CWThings.dh"
+#include "CWGlobals.dh"
+#include "CWAttach.dh"
+
+__function void SWepFunc(str arg1, str arg2, str arg3)
+{
+	if(CheckInventory(arg1))
+	{
+		GiveInventory(arg2,1);
+		SetWeapon(arg2);
+	}
+	else
+	{
+		GiveInventory(arg3,1);
+		SetWeapon(arg3);
+	};
+};
+
+__function void SItmFunc(str arg1, str arg2)
+{
+	if(CheckInventory(arg1))
+	{
+		TakeInventory(arg2,1);
+		TakeInventory(arg1,1);
+	}
+	else
+	{
+		GiveInventory(arg2,1);
+		GiveInventory(arg1,1);
+	};
+};
+
+__function void SItmFunc2(str arg1)
+{
+	if(CheckInventory(arg1))
+	{
+		TakeInventory(arg1,1);
+	}
+	else
+	{
+		GiveInventory(arg1,1);
+	};
+};
+
+__function void CWepFunc(str arg1, str arg2)
+{
+	if(CheckWeapon(arg1))
+	{
+		GiveInventory(arg2,1);
+		SetWeapon(arg2);
+	};
+};
+
+script CW_ATTACH(int arg1)
+{
+	switch(arg1)
+	{
+	case PIST_SIL:
+		SWepFunc("PistolSil", "CPistolToNorm", "CPistolToSil");
+	break;
+	case PIST_LAZ:
+		SItmFunc("PistolLaz", "PistolAccuracyMod");
+	break;
+	case PIST_TRG:
+		SItmFunc("PistolLTrig", "PistolFSpeedMod");
+	break;
+	case CM_PISTL:
+		CWepFunc("CPistol", "CPistolCMenu");
+	break;
+	case SHOG_SIL:
+		SWepFunc("ShotgunSil", "CShotgunToNorm", "CShotgunToSil");
+	break;
+	case SHOG_LAZ:
+		SItmFunc2("ShotgunLaz");
+	break;
+	case SHOG_TRG:
+		SItmFunc("ShotgunLTrig", "ShotgunFSpeedMod");
+	break;
+	case SHOG_PMP:
+		SItmFunc("ShotgunPump", "ShotgunPSpeedMod");
+	break;
+	case CM_SHTGN:
+		CWepFunc("CShotgun", "CShotgunCMenu");
+	break;
+	};
+	
+	return;
+};
+

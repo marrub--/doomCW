@@ -1,4 +1,5 @@
-__library("CWKeyFinder");
+#include "CWThings.dh"
+#include "CWGlobals.dh"
 
 script CW_KEYFIND(void) __enter
 {
@@ -70,6 +71,6 @@ script CW_KEYFIND(void) __enter
 	};
 	Delay(2);
 	goto start;
-	Suspend();
+	return;
 };
 
