@@ -1,5 +1,6 @@
 #include "CWThings.dh"
 #include "CWGlobals.dh"
+#include "CWAttach.dh"
 
 script void CW_KEYFIND(void) __enter
 {
@@ -31,11 +32,11 @@ script void CW_KEYFIND(void) __enter
 				{
 				case 0:
 					if(LTrig.inInventory)
-						ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_TRG);
+						CWAttach(PIST_TRG);
 				break;
 				case 1:
 					if(Laz.inInventory)
-						ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_LAZ);
+						CWAttach(PIST_LAZ);
 				break;
 				};
 			};
@@ -45,15 +46,15 @@ script void CW_KEYFIND(void) __enter
 				{
 				case 0:
 					if(LTrig.inInventory)
-						ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_TRG);
+						CWAttach(SHOG_TRG);
 				break;
 				case 1:
 					if(Laz.inInventory)
-						ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_LAZ);
+						CWAttach(SHOG_LAZ);
 				break;
 				case 2:
 					if(PumpMech.inInventory)
-						ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_PMP);
+						CWAttach(SHOG_PMP);
 				break;
 				};
 			};
@@ -62,9 +63,9 @@ script void CW_KEYFIND(void) __enter
 	break;
 	case BT_ZOOM:
 		if(CheckWeapon("CPistol"))
-			ACS_NamedExecuteAlways("CW_ATTACH",0,CM_PISTL);
+			CWAttach(CM_PISTL);
 		if(CheckWeapon("CShotgun"))
-			ACS_NamedExecuteAlways("CW_ATTACH",0,CM_SHTGN);
+			CWAttach(CM_SHTGN);
 		
 		Delay(10);
 	break;

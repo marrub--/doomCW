@@ -45,8 +45,8 @@ script CW_MENUOPEN(int arg1)
 			SprPrint("CMENU3", 45, CMenuX-1.0, CMenuY-23.0);
 		
 		switch(CheckInventory("CMenuNext")) {
-		case 0: SprPrint("CMTRGTIP", 72, 306.0, 167.0); break;
-		case 1: SprPrint("CMLAZTIP", 72, 306.0, 167.0); break;};
+		case 0: if(LTrig.inInventory)	SprPrint("CMTRGTIP", 72, 306.0, 167.0); break;
+		case 1: if(Laz.inInventory)	SprPrint("CMLAZTIP", 72, 306.0, 167.0); break;};
 	break;
 	
 	case 2: // SHOTGUN
@@ -68,9 +68,9 @@ script CW_MENUOPEN(int arg1)
 			SprPrint("CMENU3", 46, CMenuX-1.0, CMenuY-16.0);
 		
 		switch(CheckInventory("CMenuNext")) {
-		case 0: SprPrint("CMTRGTIP", 72, 306.0, 167.0); break;
-		case 1: SprPrint("CMLAZTIP", 72, 306.0, 167.0); break;
-		case 2: SprPrint("CMPMPTIP", 72, 306.0, 167.0); break;};
+		case 0: if(LTrig.inInventory)		SprPrint("CMTRGTIP", 72, 306.0, 167.0); break;
+		case 1: if(Laz.inInventory)		SprPrint("CMLAZTIP", 72, 306.0, 167.0); break;
+		case 2: if(PumpMech.inInventory)	SprPrint("CMPMPTIP", 72, 306.0, 167.0); break;};
 	break;
 	};
 	

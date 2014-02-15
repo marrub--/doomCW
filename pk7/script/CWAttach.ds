@@ -25,7 +25,7 @@ __function void CWepFunc(str arg1, str arg2)
 	};
 };
 
-script void CW_ATTACH(int arg1)
+__function void CWAttach(int arg1)
 {
 	switch(arg1)
 	{
@@ -61,7 +61,11 @@ script void CW_ATTACH(int arg1)
 		CWepFunc("CShotgun", "CShotgunCMenu");
 	break;
 	};
-	
+};
+
+script void CW_ATTACH(int arg1)
+{
+	CWAttach(arg1);
 	return;
 };
 
