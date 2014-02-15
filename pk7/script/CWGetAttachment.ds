@@ -1,0 +1,42 @@
+#include "CWThings.dh"
+#include "CWGlobals.dh"
+
+script void CW_GETATTACHMENT(void)
+{
+	if(Laz.inInventory&&LTrig.inInventory&&PumpMech.inInventory)
+		return;
+	switch(Random(1,3))
+	{
+	case 1:
+		laz:
+		if(!Laz.inInventory)
+			{Laz.inInventory = 1;}
+		else
+			{goto ltrig;};
+	break;
+	case 2:
+		ltrig:
+		if(!LTrig.inInventory)
+			{LTrig.inInventory = 1;}
+		else
+			{goto pmech;};
+	break;
+	case 3:
+		pmech:
+		if(!PumpMech.inInventory)
+			{PumpMech.inInventory = 1;}
+		else
+			{goto laz;};
+	break;
+	};
+	
+	return;
+};
+
+script int CW_CHECKATTACHMENT(void)
+{
+	if(Laz.inInventory&&LTrig.inInventory&&PumpMech.inInventory)
+		return 0;
+	return 1;
+};
+

@@ -16,32 +16,6 @@ __function void SWepFunc(str arg1, str arg2, str arg3)
 	};
 };
 
-__function void SItmFunc(str arg1, str arg2)
-{
-	if(CheckInventory(arg1))
-	{
-		TakeInventory(arg2,1);
-		TakeInventory(arg1,1);
-	}
-	else
-	{
-		GiveInventory(arg2,1);
-		GiveInventory(arg1,1);
-	};
-};
-
-__function void SItmFunc2(str arg1)
-{
-	if(CheckInventory(arg1))
-	{
-		TakeInventory(arg1,1);
-	}
-	else
-	{
-		GiveInventory(arg1,1);
-	};
-};
-
 __function void CWepFunc(str arg1, str arg2)
 {
 	if(CheckWeapon(arg1))
@@ -51,7 +25,7 @@ __function void CWepFunc(str arg1, str arg2)
 	};
 };
 
-script CW_ATTACH(int arg1)
+script void CW_ATTACH(int arg1)
 {
 	switch(arg1)
 	{
@@ -59,10 +33,12 @@ script CW_ATTACH(int arg1)
 		SWepFunc("PistolSil", "CPistolToNorm", "CPistolToSil");
 	break;
 	case PIST_LAZ:
-		SItmFunc("PistolLaz", "PistolAccuracyMod");
+		Laz.onPistol=!Laz.onPistol;
+		AccuracyMod.vPistol=!AccuracyMod.vPistol;
 	break;
 	case PIST_TRG:
-		SItmFunc("PistolLTrig", "PistolFSpeedMod");
+		LTrig.onPistol=!LTrig.onPistol;
+		FireSpeedMod.vPistol=!FireSpeedMod.vPistol;
 	break;
 	case CM_PISTL:
 		CWepFunc("CPistol", "CPistolCMenu");
@@ -71,13 +47,15 @@ script CW_ATTACH(int arg1)
 		SWepFunc("ShotgunSil", "CShotgunToNorm", "CShotgunToSil");
 	break;
 	case SHOG_LAZ:
-		SItmFunc2("ShotgunLaz");
+		Laz.onShotgun=!Laz.onShotgun;
 	break;
 	case SHOG_TRG:
-		SItmFunc("ShotgunLTrig", "ShotgunFSpeedMod");
+		LTrig.onShotgun=!LTrig.onShotgun;
+		FireSpeedMod.vShotgun=!FireSpeedMod.vShotgun;
 	break;
 	case SHOG_PMP:
-		SItmFunc("ShotgunPump", "ShotgunPSpeedMod");
+		PumpMech.onShotgun=!PumpMech.onShotgun;
+		AltSpeedMod.vShotgun=!AltSpeedMod.vShotgun;
 	break;
 	case CM_SHTGN:
 		CWepFunc("CShotgun", "CShotgunCMenu");

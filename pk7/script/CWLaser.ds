@@ -1,10 +1,10 @@
 #include "CWThings.dh"
 #include "CWGlobals.dh"
 
-script CW_LASER(void) __enter
+script void CW_LASER(void) __enter
 {
 	start:
-	if((CheckInventory("PistolLaz")&&CheckWeapon("CPistol"))||(CheckInventory("ShotgunLaz")&&CheckWeapon("CShotgun")))
+	if((Laz.onPistol&&CheckWeapon("CPistol"))||(Laz.onShotgun&&CheckWeapon("CShotgun")))
 	{
 		fixed angl = GetActorAngle(0);
 		fixed pitc = GetActorPitch(0);

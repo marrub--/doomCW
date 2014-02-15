@@ -1,7 +1,7 @@
 #include "CWThings.dh"
 #include "CWGlobals.dh"
 
-script CW_KEYFIND(void) __enter
+script void CW_KEYFIND(void) __enter
 {
 	start:
 	int rel = GetPlayerInput(-1,MODINPUT_BUTTONS) & BT_RELOAD;
@@ -30,12 +30,10 @@ script CW_KEYFIND(void) __enter
 				switch(CheckInventory("CMenuNext"))
 				{
 				case 0:
-					if(CheckInventory("LTrig"))
-						ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_TRG);
+					ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_TRG);
 				break;
 				case 1:
-					if(CheckInventory("Laz"))
-						ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_LAZ);
+					ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_LAZ);
 				break;
 				};
 			};
@@ -44,16 +42,13 @@ script CW_KEYFIND(void) __enter
 				switch(CheckInventory("CMenuNext"))
 				{
 				case 0:
-					if(CheckInventory("LTrig"))
-						ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_TRG);
+					ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_TRG);
 				break;
 				case 1:
-					if(CheckInventory("Laz"))
-						ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_LAZ);
+					ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_LAZ);
 				break;
 				case 2:
-					if(CheckInventory("PumpMech"))
-						ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_PMP);
+					ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_PMP);
 				break;
 				};
 			};
