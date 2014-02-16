@@ -61,7 +61,7 @@ script void CW_GETATTACHMENT(void)
 
 script int CW_CHECKATTACHMENT(void)
 {
-	if(Laz.inInventory&&LTrig.inInventory&&PumpMech.inInventory)
+	if(Laz.inInventory&&LTrig.inInventory&&PumpMech.inInventory&&FMode.inInventory)
 		return 0;
 	return 1;
 };

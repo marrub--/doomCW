@@ -31,6 +31,7 @@ actor CWeapon : Weapon
 	+WEAPON.NOALERT
 	Weapon.KickBack 40
 	Weapon.AmmoUse1 1
+	Weapon.AmmoUse2 1
 	Weapon.AmmoGive1 4
 }
 
@@ -86,6 +87,8 @@ actor BackpackWithAttachment : CustomInventory replaces Backpack
 }
 
 actor dummy : Inventory {Inventory.MaxAmount 1}
+
+actor SSGLoaded : dummy {Inventory.MaxAmount 2}
 
 actor PistolSil : dummy {}
 actor ShotgunSil : dummy {}
