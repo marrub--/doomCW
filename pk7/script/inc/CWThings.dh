@@ -1,3 +1,22 @@
+/********************************************************************************
+*																				*
+*	Copyright(C) 2014 Graham Sanderson											*
+*																				*
+*	This program is free software; you can redistribute it and/or modify		*
+*	it under the terms of the GNU General Public License as published by		*
+*	the Free Software Foundation; either version 3 of the License, or			*
+*	(at your option) any later version.											*
+*																				*
+*	This program is distributed in the hope that it will be useful,				*
+*	but WITHOUT ANY WARRANTY; without even the implied warranty of				*
+*	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the				*
+*	GNU General Public License for more details.								*
+*																				*
+*	You should have received a copy of the GNU General Public License			*
+*	along with this program; if not, see <http://www.gnu.org/licenses/>.		*
+*																				*
+********************************************************************************/
+
 #ifndef _CW_THINGS_DH_
 #define _CW_THINGS_DH_
 
@@ -7,23 +26,34 @@
 #define CallACS(arg1)	ACS_NamedExecuteAlways((arg1), 0)
 #define ClearMsg(arg1)	__printf<__printf_hud>("\n",0,(arg1),0,0,0,0)
 
-// Pistol related
+// Pistol
 #define PIST_SIL	1
 #define PIST_LAZ	2
 #define PIST_TRG	3
 #define CM_PISTL	4
 
-// Shotgun related
+// Shotgun
 #define SHOG_SIL	5
 #define SHOG_LAZ	6
 #define SHOG_TRG	7
 #define SHOG_PMP	8
 #define CM_SHTGN	9
 
+// SSG
+#define SSHT_LAZ	10
+#define SSHT_TRG	11
+#define SSHT_FMD	12
+#define SSHT_FMC	13
+#define CM_SSHTG	14
+
 // GetVal arguments
 #define GV_PSTF1	1
 #define GV_PSTF2	2
+
 #define GV_SHTF1	3
 #define GV_SHTP1	4
+
+#define GV_SSGF1	5
+#define GV_SSGM1	6
 
 #endif

@@ -1,3 +1,22 @@
+/********************************************************************************
+*																				*
+*	Copyright(C) 2014 Graham Sanderson											*
+*																				*
+*	This program is free software; you can redistribute it and/or modify		*
+*	it under the terms of the GNU General Public License as published by		*
+*	the Free Software Foundation; either version 3 of the License, or			*
+*	(at your option) any later version.											*
+*																				*
+*	This program is distributed in the hope that it will be useful,				*
+*	but WITHOUT ANY WARRANTY; without even the implied warranty of				*
+*	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the				*
+*	GNU General Public License for more details.								*
+*																				*
+*	You should have received a copy of the GNU General Public License			*
+*	along with this program; if not, see <http://www.gnu.org/licenses/>.		*
+*																				*
+********************************************************************************/
+
 #include "CWThings.dh"
 #include "CWGlobals.dh"
 #include "CWAtchMenu.dh"
@@ -71,6 +90,30 @@ script CW_MENUOPEN(int arg1)
 		case 0: if(LTrig.inInventory)		SprPrint("CMTRGTIP", 72, 306.0, 167.0); break;
 		case 1: if(Laz.inInventory)		SprPrint("CMLAZTIP", 72, 306.0, 167.0); break;
 		case 2: if(PumpMech.inInventory)	SprPrint("CMPMPTIP", 72, 306.0, 167.0); break;};
+	break;
+	
+	case 3: // SUPER SHOTGUN
+		CMenuX = 128.0;
+		CMenuY = 102.0;
+		
+		if(LTrig.inInventory)
+			SprPrint("CMENUTRG", 31, CMenuX, CMenuY);
+		if(Laz.inInventory)
+			SprPrint("CMENULAZ", 32, CMenuX, CMenuY);
+		if(FMode.inInventory)
+			SprPrint("CMENUFMD", 33, CMenuX, CMenuY);
+		
+		if(LTrig.onSSG)
+			SprPrint("CMENU3", 44, CMenuX-1.0, CMenuY-30.0);
+		if(Laz.onSSG)
+			SprPrint("CMENU3", 45, CMenuX-1.0, CMenuY-23.0);
+		if(FMode.onSSG)
+			SprPrint("CMENU3", 46, CMenuX-1.0, CMenuY-16.0);
+		
+		switch(CheckInventory("CMenuNext")) {
+		case 0: if(LTrig.inInventory)		SprPrint("CMTRGTIP", 72, 306.0, 167.0); break;
+		case 1: if(Laz.inInventory)		SprPrint("CMLAZTIP", 72, 306.0, 167.0); break;
+		case 2: if(FMode.inInventory)		SprPrint("CMFMDTIP", 72, 306.0, 167.0); break;};
 	break;
 	};
 	

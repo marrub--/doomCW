@@ -1,3 +1,22 @@
+/********************************************************************************
+*																				*
+*	Copyright(C) 2014 Graham Sanderson											*
+*																				*
+*	This program is free software; you can redistribute it and/or modify		*
+*	it under the terms of the GNU General Public License as published by		*
+*	the Free Software Foundation; either version 3 of the License, or			*
+*	(at your option) any later version.											*
+*																				*
+*	This program is distributed in the hope that it will be useful,				*
+*	but WITHOUT ANY WARRANTY; without even the implied warranty of				*
+*	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the				*
+*	GNU General Public License for more details.								*
+*																				*
+*	You should have received a copy of the GNU General Public License			*
+*	along with this program; if not, see <http://www.gnu.org/licenses/>.		*
+*																				*
+********************************************************************************/
+
 #include "CWThings.dh"
 #include "CWGlobals.dh"
 #include "CWAttach.dh"
@@ -17,9 +36,11 @@ script void CW_KEYFIND(void) __enter
 		if(!CheckInventory("DNS"))
 		{
 		if(CheckWeapon("CPistol"))
-			ACS_NamedExecuteAlways("CW_ATTACH",0,PIST_SIL);
+			CWAttach(PIST_SIL);
 		if(CheckWeapon("CShotgun"))
-			ACS_NamedExecuteAlways("CW_ATTACH",0,SHOG_SIL);
+			CWAttach(SHOG_SIL);
+		if(CheckWeapon("CSuperShotgun") && FMode.onSSG)
+			CWAttach(SSHT_FMC);
 		};
 		Delay(10);
 	break;
@@ -58,6 +79,24 @@ script void CW_KEYFIND(void) __enter
 				break;
 				};
 			};
+			if(CheckWeapon("CSuperShotgunCMenu"))
+			{
+				switch(CheckInventory("CMenuNext"))
+				{
+				case 0:
+					if(LTrig.inInventory)
+						CWAttach(SSHT_TRG);
+				break;
+				case 1:
+					if(Laz.inInventory)
+						CWAttach(SSHT_LAZ);
+				break;
+				case 2:
+					if(FMode.inInventory)
+						CWAttach(SSHT_FMD);
+				break;
+				};
+			};
 			Delay(10);
 		};
 	break;
@@ -66,6 +105,8 @@ script void CW_KEYFIND(void) __enter
 			CWAttach(CM_PISTL);
 		if(CheckWeapon("CShotgun"))
 			CWAttach(CM_SHTGN);
+		if(CheckWeapon("CSuperShotgun"))
+			CWAttach(CM_SSHTG);
 		
 		Delay(10);
 	break;

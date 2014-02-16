@@ -1,0 +1,138 @@
+/********************************************************************************
+*																				*
+*	Copyright(C) 2014 Graham Sanderson											*
+*																				*
+*	This program is free software; you can redistribute it and/or modify		*
+*	it under the terms of the GNU General Public License as published by		*
+*	the Free Software Foundation; either version 3 of the License, or			*
+*	(at your option) any later version.											*
+*																				*
+*	This program is distributed in the hope that it will be useful,				*
+*	but WITHOUT ANY WARRANTY; without even the implied warranty of				*
+*	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the				*
+*	GNU General Public License for more details.								*
+*																				*
+*	You should have received a copy of the GNU General Public License			*
+*	along with this program; if not, see <http://www.gnu.org/licenses/>.		*
+*																				*
+********************************************************************************/
+
+actor CSuperShotgun : CWeapon replaces SuperShotgun
+{
+	Weapon.SlotNumber 3
+	Weapon.AmmoType1 "Shell"
+	Weapon.AmmoGive1 8
+	Obituary "$CW_SHOTGN_OBIT"
+	Tag "$CW_SHOTGN_WTAG"
+	States
+	{
+	Spawn:
+		SHOT A -1
+		stop
+	
+	// Select //
+	Select:
+		SHT2 A 0 A_GiveInventory("DNS")
+		SHT2 A 1 A_Raise
+		wait
+	
+	Deselect:
+		SHT2 A 0 A_GiveInventory("DNS")
+		SHT2 A 1 A_Lower
+		wait
+	
+	// Ready //
+	Ready:
+		TNT1 A 0 A_TakeInventory("DNS")
+		SHT2 A 1 A_WeaponReady
+		loop
+	
+	// Fire //
+	Fire:
+		SHT2 A 9 A_SetTics(CallACS("CW_GETVAL",GV_SSGF1))
+		TNT1 A 0 A_AlertMonsters
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_PlaySound("weapons/sshotf",1)
+		SHT2 A 7 BRIGHT A_FireBullets(11.2,7.1,20,5,"BulletPuff")
+		SHT2 B 7
+		SHT2 C 7 A_CheckReload
+		SHT2 D 7 A_OpenShotgun2
+		SHT2 E 7
+		SHT2 F 7 A_LoadShotgun2
+		SHT2 G 6
+		SHT2 H 6 A_CloseShotgun2
+		SHT2 A 5 A_ReFire
+		goto Ready
+	
+	Flash:
+		TNT1 A 0 A_Quake(4, 5, 0, 16, "")
+		SHT2 I 1 BRIGHT A_SetPitch(pitch-0.7)
+		SHT2 I 1 BRIGHT A_SetPitch(pitch-0.7)
+		SHT2 J 1 BRIGHT A_SetPitch(pitch-0.6)
+		SHT2 J 1 BRIGHT A_SetPitch(pitch+0.6)
+		TNT1 A 1 A_SetPitch(pitch+0.7)
+		TNT1 A 1 A_SetPitch(pitch+0.7)
+		stop
+	}
+}
+
+actor CSuperShotgunCMenu : Weapon
+{
+	+WEAPON.NOALERT
+	+WEAPON.CHEATNOTWEAPON
+	Tag "$CW_SHOTGN_WTAG"
+	States
+	{
+	// Select //
+	Select:
+		TNT1 A 0 A_GiveInventory("DNS")
+	SelectLoop:
+		TNT1 A 0 A_Raise
+		SHT2 C 1 A_Raise
+		loop
+	
+	Deselect:
+		TNT1 A 0 A_Print("This shouldn't be printed. Please report this.")
+		TNT1 A 0 A_GiveInventory("DNS")
+	DeselectLoop:
+		TNT1 A 0 A_Lower
+		SHT2 C 1 A_Lower
+		loop
+	
+	// Ready //
+	Ready:
+		TNT1 A 0 A_GiveInventory("CMenu")
+		TNT1 A 0 ACS_NamedExecute("CW_MENUOPEN",0,3)
+		SHT2 C 1 A_WeaponReady(WRF_ALLOWZOOM|WRF_NOSWITCH)
+		wait
+	Zoom:
+		TNT1 A 0 A_TakeInventory("CMenu")
+		TNT1 A 0 A_TakeInventory("CMenuNext",0x7fffffff)
+		TNT1 A 0 ACS_NamedExecute("CW_MENUCLOSE",0)
+		TNT1 A 0 A_Lower
+		SHT2 C 1 A_Lower
+		TNT1 A 0 A_Lower
+		SHT2 C 1 A_Lower
+		TNT1 A 0 A_Lower
+		SHT2 C 1 A_Lower
+		TNT1 A 0 A_Lower
+		SHT2 C 1 A_Lower
+		TNT1 A 0 A_Lower
+		SHT2 C 1 A_Lower
+		TNT1 A 0 A_SelectWeapon("CSuperShotgun")
+		TNT1 A 0 A_TakeInventory("CSuperShotgunCMenu")
+		stop
+	
+	// Fire //
+	Fire:
+		TNT1 A 0 A_JumpIfInventory("CMenuNext",2,"Fire2")
+		TNT1 A 0 A_GiveInventory("CMenuNext")
+		SHT2 C 13 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		goto Ready
+	Fire2:
+		TNT1 A 0 A_TakeInventory("CMenuNext")
+		SHT2 C 13 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		goto Ready
+	}
+}
+

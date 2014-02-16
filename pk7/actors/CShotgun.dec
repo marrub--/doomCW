@@ -1,3 +1,22 @@
+/********************************************************************************
+*																				*
+*	Copyright(C) 2014 Graham Sanderson											*
+*																				*
+*	This program is free software; you can redistribute it and/or modify		*
+*	it under the terms of the GNU General Public License as published by		*
+*	the Free Software Foundation; either version 3 of the License, or			*
+*	(at your option) any later version.											*
+*																				*
+*	This program is distributed in the hope that it will be useful,				*
+*	but WITHOUT ANY WARRANTY; without even the implied warranty of				*
+*	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the				*
+*	GNU General Public License for more details.								*
+*																				*
+*	You should have received a copy of the GNU General Public License			*
+*	along with this program; if not, see <http://www.gnu.org/licenses/>.		*
+*																				*
+********************************************************************************/
+
 actor CShotgun : CWeapon replaces Shotgun
 {
 	Weapon.SlotNumber 3
@@ -44,7 +63,7 @@ actor CShotgun : CWeapon replaces Shotgun
 	// Fire //
 	Fire:
 		TNT1 A 0 A_JumpIfInventory("ShotgunSil",1,"SilFire")
-		SHTG A 9 A_SetTics(CallACS("CW_GETVAL",GV_PSTF1))
+		SHTG A 9 A_SetTics(CallACS("CW_GETVAL",GV_SHTF1))
 		TNT1 A 0 A_AlertMonsters
 		TNT1 A 0 A_GunFlash("Flash2")
 		TNT1 A 0 A_PlaySound("weapons/shotty",1)
@@ -58,7 +77,7 @@ actor CShotgun : CWeapon replaces Shotgun
 		SHTG A 7 A_Refire
 		goto Ready
 	SilFire:
-		SHTS A 9 A_SetTics(CallACS("CW_GETVAL",GV_PSTF1))
+		SHTS A 9 A_SetTics(CallACS("CW_GETVAL",GV_SHTF1))
 		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_PlaySound("weapons/silshotgun",1)
 		SHTS A 2 BRIGHT Offset(0,34) A_FireBullets(5.6,0,7,4,"BulletPuff")

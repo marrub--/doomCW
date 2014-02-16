@@ -1,7 +1,28 @@
+/********************************************************************************
+*																				*
+*	Copyright(C) 2014 Graham Sanderson											*
+*																				*
+*	This program is free software; you can redistribute it and/or modify		*
+*	it under the terms of the GNU General Public License as published by		*
+*	the Free Software Foundation; either version 3 of the License, or			*
+*	(at your option) any later version.											*
+*																				*
+*	This program is distributed in the hope that it will be useful,				*
+*	but WITHOUT ANY WARRANTY; without even the implied warranty of				*
+*	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the				*
+*	GNU General Public License for more details.								*
+*																				*
+*	You should have received a copy of the GNU General Public License			*
+*	along with this program; if not, see <http://www.gnu.org/licenses/>.		*
+*																				*
+********************************************************************************/
+
 const int GV_PSTF1 = 1;
 const int GV_PSTF2 = 2;
 const int GV_SHTF1 = 3;
 const int GV_SHTP1 = 4;
+const int GV_SSGF1 = 5;
+const int GV_SSGM1 = 6;
 
 DamageType NoDam {Factor 0}
 
@@ -13,9 +34,10 @@ actor CWeapon : Weapon
 	Weapon.AmmoGive1 4
 }
 
-#include "actors/CPlayer.dec"	// Player
-#include "actors/CPistol.dec"	// Beretta
-#include "actors/CShotgun.dec"	// Shotgun
+#include "actors/CPlayer.dec"		// Player
+#include "actors/CPistol.dec"		// Beretta
+#include "actors/CShotgun.dec"		// Shotgun
+#include "actors/CSuperShotgun.dec"	// Super Shotgun
 
 //DEBUG
 /*actor vddbgx : dummy {Inventory.MaxAmount 320}

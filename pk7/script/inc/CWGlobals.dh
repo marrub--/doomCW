@@ -1,3 +1,22 @@
+/********************************************************************************
+*																				*
+*	Copyright(C) 2014 Graham Sanderson											*
+*																				*
+*	This program is free software; you can redistribute it and/or modify		*
+*	it under the terms of the GNU General Public License as published by		*
+*	the Free Software Foundation; either version 3 of the License, or			*
+*	(at your option) any later version.											*
+*																				*
+*	This program is distributed in the hope that it will be useful,				*
+*	but WITHOUT ANY WARRANTY; without even the implied warranty of				*
+*	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the				*
+*	GNU General Public License for more details.								*
+*																				*
+*	You should have received a copy of the GNU General Public License			*
+*	along with this program; if not, see <http://www.gnu.org/licenses/>.		*
+*																				*
+********************************************************************************/
+
 #ifndef _CW_GLOBALS_DH_
 #define _CW_GLOBALS_DH_
 
@@ -9,19 +28,22 @@ struct atch {
 	bool inInventory;
 	bool onPistol;
 	bool onShotgun;
+	bool onSSG;
 };
 
 struct wmod {
-	// These will be ints later.
 	bool vPistol;
 	bool vShotgun;
+	bool vSSG;
 };
 
 __global_var		atch	Laz;			// Laser sight
 __global_var		atch	LTrig;			// Light trigger
 __global_var		atch	PumpMech;		// Improved pump mechanism
+__global_var		atch	FMode;			// Fire mode mechanism
 __global_var		wmod	FireSpeedMod;	// Firing speed modifier
 __global_var		wmod	AltSpeedMod;	// Alternate speed modifier
 __global_var		wmod	AccuracyMod;	// Accuracy modifier
+__global_var		wmod	FireMode;		// Fire mode
 
 #endif

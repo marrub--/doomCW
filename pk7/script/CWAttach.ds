@@ -1,3 +1,22 @@
+/********************************************************************************
+*																				*
+*	Copyright(C) 2014 Graham Sanderson											*
+*																				*
+*	This program is free software; you can redistribute it and/or modify		*
+*	it under the terms of the GNU General Public License as published by		*
+*	the Free Software Foundation; either version 3 of the License, or			*
+*	(at your option) any later version.											*
+*																				*
+*	This program is distributed in the hope that it will be useful,				*
+*	but WITHOUT ANY WARRANTY; without even the implied warranty of				*
+*	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the				*
+*	GNU General Public License for more details.								*
+*																				*
+*	You should have received a copy of the GNU General Public License			*
+*	along with this program; if not, see <http://www.gnu.org/licenses/>.		*
+*																				*
+********************************************************************************/
+
 #include "CWThings.dh"
 #include "CWGlobals.dh"
 #include "CWAttach.dh"
@@ -29,37 +48,20 @@ __function void CWAttach(int arg1)
 {
 	switch(arg1)
 	{
-	case PIST_SIL:
-		SWepFunc("PistolSil", "CPistolToNorm", "CPistolToSil");
-	break;
-	case PIST_LAZ:
-		Laz.onPistol=!Laz.onPistol;
-		AccuracyMod.vPistol=!AccuracyMod.vPistol;
-	break;
-	case PIST_TRG:
-		LTrig.onPistol=!LTrig.onPistol;
-		FireSpeedMod.vPistol=!FireSpeedMod.vPistol;
-	break;
-	case CM_PISTL:
-		CWepFunc("CPistol", "CPistolCMenu");
-	break;
-	case SHOG_SIL:
-		SWepFunc("ShotgunSil", "CShotgunToNorm", "CShotgunToSil");
-	break;
-	case SHOG_LAZ:
-		Laz.onShotgun=!Laz.onShotgun;
-	break;
-	case SHOG_TRG:
-		LTrig.onShotgun=!LTrig.onShotgun;
-		FireSpeedMod.vShotgun=!FireSpeedMod.vShotgun;
-	break;
-	case SHOG_PMP:
-		PumpMech.onShotgun=!PumpMech.onShotgun;
-		AltSpeedMod.vShotgun=!AltSpeedMod.vShotgun;
-	break;
-	case CM_SHTGN:
-		CWepFunc("CShotgun", "CShotgunCMenu");
-	break;
+	case PIST_SIL: SWepFunc("PistolSil", "CPistolToNorm", "CPistolToSil");										break;
+	case PIST_LAZ: Laz.onPistol=!Laz.onPistol;				AccuracyMod.vPistol=!AccuracyMod.vPistol;			break;
+	case PIST_TRG: LTrig.onPistol=!LTrig.onPistol;			FireSpeedMod.vPistol=!FireSpeedMod.vPistol;		break;
+	case CM_PISTL: CWepFunc("CPistol", "CPistolCMenu");															break;
+	case SHOG_SIL: SWepFunc("ShotgunSil", "CShotgunToNorm", "CShotgunToSil");										break;
+	case SHOG_LAZ: Laz.onShotgun=!Laz.onShotgun;																	break;
+	case SHOG_TRG: LTrig.onShotgun=!LTrig.onShotgun;			FireSpeedMod.vShotgun=!FireSpeedMod.vShotgun;		break;
+	case SHOG_PMP: PumpMech.onShotgun=!PumpMech.onShotgun;	AltSpeedMod.vShotgun=!AltSpeedMod.vShotgun;		break;
+	case CM_SHTGN: CWepFunc("CShotgun", "CShotgunCMenu");															break;
+	case SSHT_LAZ: Laz.onSSG=!Laz.onSSG;																			break;
+	case SSHT_TRG: LTrig.onSSG=!LTrig.onSSG;					FireSpeedMod.vSSG=!FireSpeedMod.vSSG;				break;
+	case SSHT_FMD: FMode.onSSG=!FMode.onSSG;																		break;
+	case SSHT_FMC: FireMode.vSSG=!FireMode.vSSG;																	break;
+	case CM_SSHTG: CWepFunc("CSuperShotgun", "CSuperShotgunCMenu");												break;
 	};
 };
 

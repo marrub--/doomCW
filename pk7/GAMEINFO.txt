@@ -1,2 +1,0 @@
-STARTUPTITLE="Customizable Weaponry"
-STARTUPCOLORS="00CE18","200000"
