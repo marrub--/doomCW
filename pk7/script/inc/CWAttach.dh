@@ -3,8 +3,6 @@
 
 #include "CWThings.dh"
 
-__library("CWAttach");
-
 extern __function void SWepFunc(str, str, str);
 extern __function void CWepFunc(str, str);
 extern __function void CWAttach(int);

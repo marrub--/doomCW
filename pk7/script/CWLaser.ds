@@ -10,7 +10,7 @@ script void CW_LASER(void) __enter
 		fixed pitc = GetActorPitch(0);
 		LineAttack(0, angl, pitc, 0, "LaserPointer", "NoDam", 32767.9999, 1);
 	};
-	Delay(1);
+	Delay(2);
 	goto start;
 	return;
 };

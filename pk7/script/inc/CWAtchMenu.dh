@@ -3,8 +3,6 @@
 
 #include "CWThings.dh"
 
-__library("CWAtchMenu");
-
 extern __function void SprPrint(str, int, int, int);
 
 #endif
