@@ -17,11 +17,11 @@ struct wmod {
 	bool vShotgun;
 };
 
-__global_var		atch			Laz; // Laser sight
-__global_var		atch		  LTrig; // Light trigger
-__global_var		atch	   PumpMech; // Improved pump mechanism
-__global_var		wmod   FireSpeedMod; // Firing speed modifier
-__global_var		wmod	AltSpeedMod; // Alternate speed modifier
-__global_var		wmod	AccuracyMod; // Accuracy modifier
+__global_var		atch	Laz;			// Laser sight
+__global_var		atch	LTrig;			// Light trigger
+__global_var		atch	PumpMech;		// Improved pump mechanism
+__global_var		wmod	FireSpeedMod;	// Firing speed modifier
+__global_var		wmod	AltSpeedMod;	// Alternate speed modifier
+__global_var		wmod	AccuracyMod;	// Accuracy modifier
 
 #endif
