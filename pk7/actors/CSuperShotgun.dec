@@ -20,9 +20,8 @@
 actor CSuperShotgun : CWeapon replaces SuperShotgun
 {
 	Weapon.SlotNumber 3
-	Weapon.AmmoUse1 2
+	Weapon.AmmoUse1 1
 	Weapon.AmmoType1 "Shell"
-	Weapon.AmmoType2 "Shell"
 	Weapon.AmmoGive1 8
 	Obituary "$CW_SHOTGN_OBIT"
 	Tag "$CW_SHOTGN_WTAG"
@@ -57,7 +56,8 @@ actor CSuperShotgun : CWeapon replaces SuperShotgun
 		TNT1 A 0 A_AlertMonsters
 		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_PlaySound("weapons/sshotf",1)
-		SHT2 A 7 BRIGHT A_FireBullets(11.2,7.1,20,5,"BulletPuff")
+		TNT1 A 0 A_FireBullets(11.2,7.1,10,2,"BulletPuff")
+		SHT2 A 7 BRIGHT A_FireBullets(11.2,7.1,10,3,"BulletPuff")
 		goto Reload
 	Fire2:
 		SHT2 A 9 A_SetTics(CallACS("CW_GETVAL",GV_SSGF1))

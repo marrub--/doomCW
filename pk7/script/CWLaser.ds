@@ -23,7 +23,7 @@
 script void CW_LASER(void) __enter
 {
 	start:
-	if((Laz.onPistol&&CheckWeapon("CPistol"))||(Laz.onShotgun&&CheckWeapon("CShotgun")))
+	if((Laz.onPistol&&CheckWeapon("CPistol"))||(Laz.onShotgun&&CheckWeapon("CShotgun"))||(Laz.onSSG&&CheckWeapon("CSuperShotgun")))
 	{
 		fixed angl = GetActorAngle(0);
 		fixed pitc = GetActorPitch(0);
