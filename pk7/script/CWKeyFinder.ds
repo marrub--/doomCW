@@ -36,11 +36,11 @@ script void CW_KEYFIND(void) __enter
 		if(!CheckInventory("DNS"))
 		{
 		if(CheckWeapon("CPistol"))
-			CWAttach(PIST_SIL);
+			CW_ATTACH(PIST_SIL);
 		if(CheckWeapon("CShotgun"))
-			CWAttach(SHOG_SIL);
+			CW_ATTACH(SHOG_SIL);
 		if(CheckWeapon("CSuperShotgun") && FMode.onSSG)
-			CWAttach(SSHT_FMC);
+			CW_ATTACH(SSHT_FMC);
 		};
 		Delay(10);
 	break;
@@ -53,11 +53,11 @@ script void CW_KEYFIND(void) __enter
 				{
 				case 0:
 					if(LTrig.inInventory)
-						CWAttach(PIST_TRG);
+						CW_ATTACH(PIST_TRG);
 				break;
 				case 1:
 					if(Laz.inInventory)
-						CWAttach(PIST_LAZ);
+						CW_ATTACH(PIST_LAZ);
 				break;
 				};
 			};
@@ -67,15 +67,15 @@ script void CW_KEYFIND(void) __enter
 				{
 				case 0:
 					if(LTrig.inInventory)
-						CWAttach(SHOG_TRG);
+						CW_ATTACH(SHOG_TRG);
 				break;
 				case 1:
 					if(Laz.inInventory)
-						CWAttach(SHOG_LAZ);
+						CW_ATTACH(SHOG_LAZ);
 				break;
 				case 2:
 					if(PumpMech.inInventory)
-						CWAttach(SHOG_PMP);
+						CW_ATTACH(SHOG_PMP);
 				break;
 				};
 			};
@@ -85,15 +85,15 @@ script void CW_KEYFIND(void) __enter
 				{
 				case 0:
 					if(LTrig.inInventory)
-						CWAttach(SSHT_TRG);
+						CW_ATTACH(SSHT_TRG);
 				break;
 				case 1:
 					if(Laz.inInventory)
-						CWAttach(SSHT_LAZ);
+						CW_ATTACH(SSHT_LAZ);
 				break;
 				case 2:
 					if(FMode.inInventory)
-						CWAttach(SSHT_FMD);
+						CW_ATTACH(SSHT_FMD);
 				break;
 				};
 			};
@@ -102,11 +102,11 @@ script void CW_KEYFIND(void) __enter
 	break;
 	case BT_ZOOM:
 		if(CheckWeapon("CPistol"))
-			CWAttach(CM_PISTL);
+			CW_ATTACH(CM_PISTL);
 		if(CheckWeapon("CShotgun"))
-			CWAttach(CM_SHTGN);
+			CW_ATTACH(CM_SHTGN);
 		if(CheckWeapon("CSuperShotgun"))
-			CWAttach(CM_SSHTG);
+			CW_ATTACH(CM_SSHTG);
 		
 		Delay(10);
 	break;

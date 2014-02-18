@@ -22,8 +22,8 @@
 
 #include "CWThings.dh"
 
-extern __function void SWepFunc(str, str, str);
-extern __function void CWepFunc(str, str);
-extern __function void CWAttach(int);
+extern __function		void SWepFunc(str, str, str);
+extern __function		void CWepFunc(str, str);
+extern "ACS" __script	void CW_ATTACH(int);
 
 #endif
