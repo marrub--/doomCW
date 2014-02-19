@@ -20,8 +20,6 @@
 #ifndef _CW_ATTACH_DH_
 #define _CW_ATTACH_DH_
 
-#include "CWThings.dh"
-
 extern __function		void SWepFunc(str, str, str);
 extern __function		void CWepFunc(str, str);
 extern "ACS" __script	void CW_ATTACH(int);

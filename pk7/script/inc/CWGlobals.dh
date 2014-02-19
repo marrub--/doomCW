@@ -20,8 +20,6 @@
 #ifndef _CW_GLOBALS_DH_
 #define _CW_GLOBALS_DH_
 
-#include "CWThings.dh"
-
 __address_space __global_array __global_var;
 
 struct atch {

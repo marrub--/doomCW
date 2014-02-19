@@ -20,8 +20,6 @@
 #ifndef _CW_ATCHMENU_DH_
 #define _CW_ATCHMENU_DH_
 
-#include "CWThings.dh"
-
 extern __function void SprPrint(str, int, int, int);
 
 #endif

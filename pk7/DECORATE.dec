@@ -19,10 +19,13 @@
 
 const int GV_PSTF1 = 1;
 const int GV_PSTF2 = 2;
-const int GV_SHTF1 = 3;
-const int GV_SHTP1 = 4;
-const int GV_SSGF1 = 5;
-const int GV_SSGM1 = 6;
+const int GV_PSTF3 = 3;
+
+const int GV_SHTF1 = 4;
+const int GV_SHTP1 = 5;
+
+const int GV_SSGF1 = 6;
+const int GV_SSGM1 = 7;
 
 DamageType NoDam {Factor 0}
 

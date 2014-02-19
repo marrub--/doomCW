@@ -21,6 +21,7 @@
 #define _CW_THINGS_DH_
 
 #include <zcommon.acs>
+#include "CWGlobals.dh"
 
 #define script			__extscript "ACS"
 #define CallACS(arg1)	ACS_NamedExecuteAlways((arg1), 0)
@@ -30,30 +31,33 @@
 #define PIST_SIL	1
 #define PIST_LAZ	2
 #define PIST_TRG	3
-#define CM_PISTL	4
+#define PIST_FMD	4
+#define PIST_FMC	5
+#define CM_PISTL	6
 
 // Shotgun
-#define SHOG_SIL	5
-#define SHOG_LAZ	6
-#define SHOG_TRG	7
-#define SHOG_PMP	8
-#define CM_SHTGN	9
+#define SHOG_SIL	7
+#define SHOG_LAZ	8
+#define SHOG_TRG	9
+#define SHOG_PMP	10
+#define CM_SHTGN	11
 
 // SSG
-#define SSHT_LAZ	10
-#define SSHT_TRG	11
-#define SSHT_FMD	12
-#define SSHT_FMC	13
-#define CM_SSHTG	14
+#define SSHT_LAZ	12
+#define SSHT_TRG	13
+#define SSHT_FMD	14
+#define SSHT_FMC	15
+#define CM_SSHTG	16
 
 // GetVal arguments
 #define GV_PSTF1	1
 #define GV_PSTF2	2
+#define GV_PSTF3	3
 
-#define GV_SHTF1	3
-#define GV_SHTP1	4
+#define GV_SHTF1	4
+#define GV_SHTP1	5
 
-#define GV_SSGF1	5
-#define GV_SSGM1	6
+#define GV_SSGF1	6
+#define GV_SSGM1	7
 
 #endif

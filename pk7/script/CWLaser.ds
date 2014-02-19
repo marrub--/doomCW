@@ -18,7 +18,6 @@
 ********************************************************************************/
 
 #include "CWThings.dh"
-#include "CWGlobals.dh"
 
 script void CW_LASER(void) __enter
 {

@@ -18,7 +18,6 @@
 ********************************************************************************/
 
 #include "CWThings.dh"
-#include "CWGlobals.dh"
 
 script int CW_GETVAL(int arg1)
 {
@@ -29,6 +28,9 @@ script int CW_GETVAL(int arg1)
 	break;
 	case GV_PSTF2:
 		return 5-AccuracyMod.vPistol;
+	break;
+	case GV_PSTF3:
+		return FireMode.vPistol;
 	break;
 	case GV_SHTF1:
 		return 3-FireSpeedMod.vShotgun;

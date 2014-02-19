@@ -18,8 +18,6 @@
 ********************************************************************************/
 
 #include "CWThings.dh"
-#include "CWGlobals.dh"
-#include "CWAtchMenu.dh"
 
 __function void SprPrint(str sprite, int id, int x, int y)
 {
@@ -57,15 +55,21 @@ script CW_MENUOPEN(int arg1)
 			SprPrint("CMENUTRG", 31, CMenuX, CMenuY);
 		if(Laz.inInventory)
 			SprPrint("CMENULAZ", 32, CMenuX, CMenuY);
+		if(FMode.inInventory)
+			SprPrint("CMENUFMD", 33, CMenuX, CMenuY);
 		
 		if(LTrig.onPistol)
 			SprPrint("CMENU3", 44, CMenuX-1.0, CMenuY-30.0);
 		if(Laz.onPistol)
 			SprPrint("CMENU3", 45, CMenuX-1.0, CMenuY-23.0);
+		if(FMode.onPistol)
+			SprPrint("CMENU3", 46, CMenuX-1.0, CMenuY-16.0);
+			
 		
 		switch(CheckInventory("CMenuNext")) {
 		case 0: if(LTrig.inInventory)	SprPrint("CMTRGTIP", 72, 306.0, 167.0); break;
-		case 1: if(Laz.inInventory)	SprPrint("CMLAZTIP", 72, 306.0, 167.0); break;};
+		case 1: if(Laz.inInventory)	SprPrint("CMLAZTIP", 72, 306.0, 167.0); break;
+		case 2: if(FMode.inInventory)	SprPrint("CMFMDTIP", 72, 306.0, 167.0); break;};
 	break;
 	
 	case 2: // SHOTGUN
@@ -111,9 +115,9 @@ script CW_MENUOPEN(int arg1)
 			SprPrint("CMENU3", 46, CMenuX-1.0, CMenuY-16.0);
 		
 		switch(CheckInventory("CMenuNext")) {
-		case 0: if(LTrig.inInventory)		SprPrint("CMTRGTIP", 72, 306.0, 167.0); break;
-		case 1: if(Laz.inInventory)		SprPrint("CMLAZTIP", 72, 306.0, 167.0); break;
-		case 2: if(FMode.inInventory)		SprPrint("CMFMDTIP", 72, 306.0, 167.0); break;};
+		case 0: if(LTrig.inInventory)	SprPrint("CMTRGTIP", 72, 306.0, 167.0); break;
+		case 1: if(Laz.inInventory)	SprPrint("CMLAZTIP", 72, 306.0, 167.0); break;
+		case 2: if(FMode.inInventory)	SprPrint("CMFMDTIP", 72, 306.0, 167.0); break;};
 	break;
 	};
 	

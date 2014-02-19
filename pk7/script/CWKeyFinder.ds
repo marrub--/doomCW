@@ -18,7 +18,6 @@
 ********************************************************************************/
 
 #include "CWThings.dh"
-#include "CWGlobals.dh"
 #include "CWAttach.dh"
 
 script void CW_KEYFIND(void) __enter
@@ -35,6 +34,11 @@ script void CW_KEYFIND(void) __enter
 	case BT_RELOAD+BT_SPEED:
 		if(!CheckInventory("DNS"))
 		{
+		if(CheckWeapon("CPistol") && FMode.onPistol)
+		{
+			CW_ATTACH(PIST_FMC);
+			goto erl;
+		};
 		if(CheckWeapon("CPistol"))
 			CW_ATTACH(PIST_SIL);
 		if(CheckWeapon("CShotgun"))
@@ -42,6 +46,7 @@ script void CW_KEYFIND(void) __enter
 		if(CheckWeapon("CSuperShotgun") && FMode.onSSG)
 			CW_ATTACH(SSHT_FMC);
 		};
+		erl:
 		Delay(10);
 	break;
 	case BT_RELOAD:
@@ -58,6 +63,10 @@ script void CW_KEYFIND(void) __enter
 				case 1:
 					if(Laz.inInventory)
 						CW_ATTACH(PIST_LAZ);
+				break;
+				case 2:
+					if(FMode.inInventory)
+						CW_ATTACH(PIST_FMD);
 				break;
 				};
 			};
